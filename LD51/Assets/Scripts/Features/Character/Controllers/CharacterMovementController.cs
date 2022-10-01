@@ -33,6 +33,7 @@ namespace Features.Character.Controllers
             
             Observable
                 .EveryUpdate()
+               
                 .Subscribe(_ =>
                 {
                     var horizontal = Input.GetAxis(HorizontalMovement);
@@ -40,6 +41,7 @@ namespace Features.Character.Controllers
                     
                     _lookView.x = Input.GetAxisRaw(HorizontalLook) * 100f * Time.deltaTime; 
                     _lookView.y += Input.GetAxisRaw(VerticalLook) * 100f * Time.deltaTime;
+                    
 
                     if (Input.GetKeyDown(Jump))
                         MessageBroker.Default.Publish(new CharacterModel.Jump());
@@ -47,8 +49,11 @@ namespace Features.Character.Controllers
                     if (Input.GetKeyDown(Dash))
                         MessageBroker.Default.Publish(new CharacterModel.Dash());
 
-                    _characterModel.MovementDirection.Value = new Vector3(horizontal, 0, depth);
-                    _characterModel.LookDirection.Value = new Vector3(Mathf.Clamp(-_lookView.y, -90f, 90f), _lookView.x, 0);
+                    _characterModel.MovementDirection.Value = 
+                        new Vector3(horizontal, 0, depth);
+                    _characterModel.LookDirection.Value =
+                        new Vector3(Mathf.Clamp(-_lookView.y, -90f, 90f),
+                        _lookView.x, 0);
                 })
                 .AddTo(_compositeDisposable);
         }

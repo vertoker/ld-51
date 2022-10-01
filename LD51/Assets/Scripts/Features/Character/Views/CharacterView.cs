@@ -33,8 +33,8 @@ namespace Features.Character.Views
                     move.Normalize();
                     
                     var movement = _rigidbody.SweepTest(move, out var hit, distance) 
-                        ? Vector3.zero 
-                        : transform.TransformDirection(_model.MovementDirection.Value);
+                    ? Vector3.zero : transform.TransformDirection(
+                            _model.MovementDirection.Value);
                     
                     _rigidbody.velocity = new Vector3(
                         movement.x * _model.Speed,
@@ -49,7 +49,8 @@ namespace Features.Character.Views
                 .Where(_ => _model.Jumpable)
                 .Subscribe(_ =>
                 {
-                    _rigidbody.AddForce(transform.up * _model.JumpForce, ForceMode.Impulse);
+                    _rigidbody.AddForce(transform.up * _model.JumpForce, 
+                        ForceMode.Impulse);
                     _model.Jumpable = false;
                 })
                 .AddTo(this);
@@ -60,7 +61,8 @@ namespace Features.Character.Views
                 .Where(_ => _model.Dashable)
                 .Subscribe(_ =>
                 {
-                    _rigidbody.AddForce(transform.forward * _model.DashForce, ForceMode.Impulse);
+                    _rigidbody.AddForce(transform.forward * _model.DashForce, 
+                        ForceMode.Impulse);
                     _model.Dashable = false;
                 })
                 .AddTo(this);
@@ -70,7 +72,8 @@ namespace Features.Character.Views
                 .AsObservable()
                 .Subscribe(rotation =>
                 {
-                    _povCamera.transform.localRotation = Quaternion.Euler(rotation.x, 0f, 0f);
+                    _povCamera.transform.localRotation = Quaternion.Euler
+                    (rotation.x, 0f, 0f);
                     transform.Rotate(Vector3.up * rotation.y);
                 })
                 .AddTo(this);
