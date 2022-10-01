@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee364740697110749b61ac1f76ed6928, type: 3}
   m_Name: ConfigInstaller
   m_EditorClassIdentifier: 
-  cameraBehaviourConfig: {fileID: 11400000, guid: 8add7d9021d2d96419482e32f78d234d,
+  _cameraBehaviourConfig: {fileID: 11400000, guid: 8add7d9021d2d96419482e32f78d234d,
     type: 2}
+  _characterConfig: {fileID: 11400000, guid: 38215ae832963e4438ba7478c4069b8f, type: 2}
