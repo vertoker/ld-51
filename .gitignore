@@ -30,3 +30,7 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
+LD51/LD51Scripts.csproj
+LD51/UserSettings/EditorUserSettings.asset
+LD51/LD51Scripts.csproj
+*.csproj
