@@ -17,17 +17,14 @@ namespace Features.Character.Models
         public class Jump { }
         public class Dash { }
         
-        public readonly ReactiveProperty<Vector3> LookDirection;
-        public readonly ReactiveProperty<Vector3> MovementDirection;
+        public readonly ReactiveProperty<Vector3> LookDirection = new ReactiveProperty<Vector3>();
+        public readonly ReactiveProperty<Vector3> MovementDirection = new ReactiveProperty<Vector3>();
 
         private CharacterModel(CharacterData data)
         {
             Speed = data.Speed;
             JumpForce = data.JumpForce;
             DashForce = data.DashForce;
-            
-            LookDirection = new ReactiveProperty<Vector3>();
-            MovementDirection = new ReactiveProperty<Vector3>();
         }
         
         public void Dispose()
