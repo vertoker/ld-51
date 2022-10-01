@@ -3,11 +3,10 @@ using Features.Character.Controllers;
 using Features.Character.Data;
 using Features.Character.Factories;
 using UnityEngine;
-using Zenject;
 
 namespace Features.Character.Service
 {
-    public class CharacterSpawnService : IInitializable
+    public class CharacterSpawnService
     {
         private readonly CharacterMovementController _characterMovementController;
         private readonly CharacterModelFactory _characterModelFactory;
@@ -39,11 +38,6 @@ namespace Features.Character.Service
             characterView.transform.position = position;
             
             _characterMovementController.SetCharacter(characterModel);
-        }
-
-        public void Initialize()
-        {
-            //SpawnCharacter(Vector3.zero);
         }
     }
 }
