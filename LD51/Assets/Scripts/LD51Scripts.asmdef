@@ -1,0 +1,25 @@
+{
+    "name": "LD51Scripts",
+    "rootNamespace": "",
+    "references": [
+        "UniRx",
+        "UniTask",
+        "Zenject",
+        "UniTask.TextMeshPro",
+        "ObjectPooler.Runtime",
+        "SerializationSaver.Runtime",
+        "DOTween.Modules"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Zenject-usage.dll",
+        "DOTween.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
