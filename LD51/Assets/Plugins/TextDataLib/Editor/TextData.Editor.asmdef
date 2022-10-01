@@ -1,0 +1,17 @@
+{
+    "name": "TextData.Editor",
+    "rootNamespace": "TextDataLib.Editor",
+    "references": [
+        "GUID:fdb76d5ae79ace9458523cfd9eb311c4",
+        "GUID:1a6e12463e11f9a4dae3c7d7262977f5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
