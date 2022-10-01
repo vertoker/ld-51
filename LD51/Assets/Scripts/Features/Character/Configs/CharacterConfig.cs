@@ -11,10 +11,12 @@ namespace Features.Character.Configs
         [Header("Movement settings")] 
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpForce;
+        [SerializeField] private float _dashForce;
 
         public CharacterView CharacterPrefab => _characterPrefab;
 
         public float Speed => _speed;
         public float JumpForce => _jumpForce;
+        public float DashForce => _dashForce;
     }
 }
