@@ -96,6 +96,9 @@
     <Compile Include="Assets\Scripts\Features\Character\Models\CharacterModel.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterMovementController.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Factories\CharacterModelFactory.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Button.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\ButtonActivate.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Button1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
