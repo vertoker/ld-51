@@ -86,6 +86,16 @@
     <Compile Include="Assets\Scripts\Features\Mechanics\Trampoline.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Jumper.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\OnObject.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Factories\CharacterViewFactory.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Views\CharacterView.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Service\CharacterSpawnService.cs" />
+    <Compile Include="Assets\Scripts\Bootstrap\LevelInstaller.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Data\CharacterData.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Configs\CharacterConfig.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Installers\CharacterInstaller.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Models\CharacterModel.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterMovementController.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Factories\CharacterModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
