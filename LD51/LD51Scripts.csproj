@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Features\Mechanics\PlatformMovement.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Trampoline.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Jumper.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\OnObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
