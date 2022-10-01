@@ -1,5 +1,6 @@
 ﻿using Features.Character.Models;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using Zenject;
 
@@ -10,8 +11,7 @@ namespace Features.Character.Views
         [SerializeField] private Camera _povCamera;
         [SerializeField] private Rigidbody _rigidbody;
         
-        [SerializeField] private Transform _groundCheck;
-        [SerializeField] private LayerMask _floorMask;
+        [SerializeField] private BoxCollider _groundCheckTrigger;
         
         private CharacterModel _model;
         
@@ -27,7 +27,15 @@ namespace Features.Character.Views
                 .EveryUpdate()
                 .Subscribe(_ =>
                 {
-                    var movement = transform.TransformDirection(_model.MovementDirection.Value);
+                    var move = _rigidbody.velocity;
+                    move.y = 0f;
+                    var distance = move.magnitude * Time.fixedDeltaTime;
+                    move.Normalize();
+                    
+                    var movement = _rigidbody.SweepTest(move, out var hit, distance) 
+                        ? Vector3.zero 
+                        : transform.TransformDirection(_model.MovementDirection.Value);
+                    
                     _rigidbody.velocity = new Vector3(
                         movement.x * _model.Speed,
                         _rigidbody.velocity.y,
@@ -35,27 +43,44 @@ namespace Features.Character.Views
                 })
                 .AddTo(this);
 
-            _model
-                .Jump
-                .AsObservable()
-                .Where(status => status)
+            MessageBroker
+                .Default
+                .Receive<CharacterModel.Jump>()
+                .Where(_ => _model.Jumpable)
                 .Subscribe(_ =>
                 {
-                    if (Physics.CheckSphere(_groundCheck.position, 0.1f, _floorMask))
-                    {
-                        _rigidbody.AddForce(Vector3.up * _model.JumpForce, ForceMode.Impulse);
-                        _model.Jump.Value = false;
-                    }
+                    _rigidbody.AddForce(transform.up * _model.JumpForce, ForceMode.Impulse);
+                    _model.Jumpable = false;
                 })
                 .AddTo(this);
-            
+
+            MessageBroker
+                .Default
+                .Receive<CharacterModel.Dash>()
+                .Where(_ => _model.Dashable)
+                .Subscribe(_ =>
+                {
+                    _rigidbody.AddForce(transform.forward * _model.DashForce, ForceMode.Impulse);
+                    _model.Dashable = false;
+                })
+                .AddTo(this);
+
             _model
                 .LookDirection
                 .AsObservable()
                 .Subscribe(rotation =>
                 {
                     _povCamera.transform.localRotation = Quaternion.Euler(rotation.x, 0f, 0f);
-                    transform.Rotate(0f, rotation.y, 0f);
+                    transform.Rotate(Vector3.up * rotation.y);
+                })
+                .AddTo(this);
+            
+            _groundCheckTrigger
+                .OnTriggerStayAsObservable()
+                .Subscribe(_ =>
+                {
+                    _model.Jumpable = true;
+                    _model.Dashable = true;
                 })
                 .AddTo(this);
         }

@@ -30,7 +30,8 @@ namespace Features.Character.Service
             var data = new CharacterData
             {
                 Speed = _characterConfig.Speed,
-                JumpForce = _characterConfig.JumpForce
+                JumpForce = _characterConfig.JumpForce,
+                DashForce = _characterConfig.DashForce
             };
 
             var characterModel = _characterModelFactory.Create(data);

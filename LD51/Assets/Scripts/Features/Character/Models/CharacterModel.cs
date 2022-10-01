@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Features.Character.Data;
 using UniRx;
 using UnityEngine;
@@ -7,10 +8,15 @@ namespace Features.Character.Models
 {
     public class CharacterModel : IDisposable
     {
-        public float Speed { get; }
-        public float JumpForce { get; }
+        public bool Jumpable;
+        public bool Dashable;
+        public float Speed { get; private set; }
+        public float JumpForce { get; private set; }
+        public float DashForce { get; private set; }
 
-        public readonly ReactiveProperty<bool> Jump;
+        public class Jump { }
+        public class Dash { }
+        
         public readonly ReactiveProperty<Vector3> LookDirection;
         public readonly ReactiveProperty<Vector3> MovementDirection;
 
@@ -18,8 +24,8 @@ namespace Features.Character.Models
         {
             Speed = data.Speed;
             JumpForce = data.JumpForce;
-
-            Jump = new ReactiveProperty<bool>();
+            DashForce = data.DashForce;
+            
             LookDirection = new ReactiveProperty<Vector3>();
             MovementDirection = new ReactiveProperty<Vector3>();
         }
