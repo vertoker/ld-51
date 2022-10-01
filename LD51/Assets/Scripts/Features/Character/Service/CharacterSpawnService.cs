@@ -42,7 +42,7 @@ namespace Features.Character.Service
 
         public void Initialize()
         {
-            SpawnCharacter(Vector3.zero);
+            //SpawnCharacter(Vector3.zero);
         }
     }
 }
