@@ -14,6 +14,8 @@ namespace Features.Character.Controllers
         private const string VerticalLook = "Mouse Y";
         
         private const float MouseSensitivityX = 100f;
+       
+
         private static readonly Vector2 MouseLock = new (-90f, 90f);
 
         private const KeyCode Jump = KeyCode.Space;
@@ -41,8 +43,12 @@ namespace Features.Character.Controllers
                     var horizontal = Input.GetAxis(HorizontalMovement);
                     var depth = Input.GetAxis(DepthMovement);
 
-                    _look.x = Input.GetAxis(HorizontalLook) * MouseSensitivityX * Time.deltaTime;
-                    _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook), MouseLock.x, MouseLock.y);
+                    _look.x = Input.GetAxis(HorizontalLook) * MouseSensitivityX * 
+                        Time.unscaledDeltaTime;
+                    _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook),
+                        MouseLock.x, MouseLock.y);
+
+                    
 
                     if (Input.GetKeyDown(Jump))
                         MessageBroker.Default.Publish(new CharacterModel.Jump());
@@ -50,8 +56,10 @@ namespace Features.Character.Controllers
                     if (Input.GetKeyDown(Dash))
                         MessageBroker.Default.Publish(new CharacterModel.Dash());
 
-                    _characterModel.MovementDirection.Value = new Vector3(horizontal, 0, depth);
-                    _characterModel.LookDirection.Value = new Vector3(_look.y, _look.x, 0);
+                    _characterModel.MovementDirection.Value = 
+                        new Vector3(horizontal, 0, depth);
+                    _characterModel.LookDirection.Value = 
+                        new Vector3(_look.y, _look.x, 0);
                 })
                 .AddTo(_compositeDisposable);
         }
