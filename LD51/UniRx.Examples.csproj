@@ -53,7 +53,7 @@
     <UnityVersion>2021.3.11f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\UniRx\Examples\Sample12_ReactiveProperty.cs" />
@@ -319,6 +319,12 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -686,27 +692,23 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UniRx.csproj">
       <Project>{82B714DE-B690-AB68-D46C-9466168FAF42}</Project>
       <Name>UniRx</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{D896F3A8-A5DC-6FF0-D476-13B518D1848D}</Project>
-      <Name>UnityEngine.TestRunner</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{9A1E6620-077A-19BD-9202-23D7EEF5C93B}</Project>
-      <Name>UnityEditor.TestRunner</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{E10132F4-09F4-001F-8DAA-3CF021F80E8D}</Project>
-      <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{2B8F0633-D5FE-E71F-AC89-4155681EA5E5}</Project>
-      <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
