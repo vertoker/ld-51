@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32802.440
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.UI", "UnityEngine.UI.csproj", "{2B8F0633-D5FE-E71F-AC89-4155681EA5E5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Core.Runtime", "Unity.RenderPipelines.Core.Runtime.csproj", "{DBD4E755-C8CC-7FCA-D8F9-15CED2687E37}"
@@ -59,7 +57,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-TestFramework", "Ze
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core.Device", "Unity.Services.Core.Device.csproj", "{430972DE-A9AF-08ED-7E65-85BEA571F654}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LD51Scripts", "LD51Scripts.csproj", "{9AF1D599-56A0-67A9-8F3B-630E85C6D2CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LD51Scripts", "LD51Scripts.csproj", "{99D5F19A-A056-A967-8F3B-630E85C6D2CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationSaver.Runtime", "SerializationSaver.Runtime.csproj", "{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}"
 EndProject
@@ -285,10 +283,10 @@ Global
 		{430972DE-A9AF-08ED-7E65-85BEA571F654}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{430972DE-A9AF-08ED-7E65-85BEA571F654}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{430972DE-A9AF-08ED-7E65-85BEA571F654}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AF1D599-56A0-67A9-8F3B-630E85C6D2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AF1D599-56A0-67A9-8F3B-630E85C6D2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AF1D599-56A0-67A9-8F3B-630E85C6D2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AF1D599-56A0-67A9-8F3B-630E85C6D2CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -504,8 +502,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {21D49D3E-D295-4E0C-B28C-DF3A41A6D6C3}
 	EndGlobalSection
 EndGlobal

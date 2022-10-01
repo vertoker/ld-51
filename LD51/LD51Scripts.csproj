@@ -99,6 +99,8 @@
     <Compile Include="Assets\Scripts\Features\Core\CoreManager.cs" />
     <Compile Include="Assets\Scripts\Features\Core\_Placeholder\PlaceholderEventTrigger.cs" />
     <Compile Include="Assets\Scripts\Features\Core\_Placeholder\CharContr.cs" />
+    <Compile Include="Assets\Scripts\Features\TokioGhoulGame.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\_Placeholder\PlaceholderSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
