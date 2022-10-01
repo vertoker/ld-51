@@ -17,8 +17,6 @@ namespace Features.Character.Controllers
         private const KeyCode Dash = KeyCode.LeftShift;
         
         private CharacterModel _characterModel;
-
-        private Vector2 _lookView;
         
         private readonly CompositeDisposable _compositeDisposable;
         
@@ -38,10 +36,10 @@ namespace Features.Character.Controllers
                 {
                     var horizontal = Input.GetAxis(HorizontalMovement);
                     var depth = Input.GetAxis(DepthMovement);
-                    
                     _lookView.x = Input.GetAxisRaw(HorizontalLook) * 100f * Time.deltaTime; 
                     _lookView.y += Input.GetAxisRaw(VerticalLook) * 100f * Time.deltaTime;
                     
+
 
                     if (Input.GetKeyDown(Jump))
                         MessageBroker.Default.Publish(new CharacterModel.Jump());

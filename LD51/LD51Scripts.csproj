@@ -81,6 +81,8 @@
      <Compile Include="Assets\Scripts\Features\Character\Installers\CharacterInstaller.cs" />
      <Compile Include="Assets\Scripts\Bootstrap\LevelInstaller.cs" />
      <Compile Include="Assets\Scripts\Features\Character\Service\CharacterSpawnService.cs" />
+     <Compile Include="Assets\Scripts\Features\Character\_Placeholder\PlaceholderSpawner.cs" />
+     <Compile Include="Assets\Scripts\Features\TokioGhoulGame.cs" />
      <None Include="Assets\Scripts\LD51Scripts.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
