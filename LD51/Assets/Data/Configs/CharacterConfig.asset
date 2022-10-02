@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterPrefab: {fileID: 3999668486007306815, guid: 1a9c9106d15169343ad3324b1d6a6bdc,
     type: 3}
-  _standardFOV: 80
+  _standardFOV: 75
   _gravityScale: 2
   _speed: 10
-  _jumpForce: 15
-  _maximumVerticalVelocity: 25
+  _jumpForce: 20
+  _maximumVerticalVelocity: 20
   _dashForce: 50
-  _dashTime: 0.5
+  _dashTime: 0.2
   _dashSpeed: 50
-  _dashFOV: 90
+  _dashFOV: 100

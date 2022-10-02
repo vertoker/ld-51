@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 4941092128752581049}
   - component: {fileID: 4941092128752581050}
   - component: {fileID: 4941092128752581053}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: NotInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,9 +168,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4941092129577273453}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OnParent
-  m_TagString: Untagged
+  m_TagString: NotInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

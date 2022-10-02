@@ -18,6 +18,8 @@ namespace Mechanics
 
         public void SetTarget(Transform target, CallExplosion effect)
         {
+            if (target == null)
+                return;
             rb.velocity = Vector3.zero;
             this.target = target;
             this.effect = effect;

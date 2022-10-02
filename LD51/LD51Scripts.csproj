@@ -768,6 +768,10 @@
       <Project>{62A88FCE-1F33-EE78-68AB-931CEF683AE4}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
+    <ProjectReference Include="ObjectPooler.Runtime.csproj">
+      <Project>{DC7C6854-2831-65A2-F9AC-B2DC1AF2D124}</Project>
+      <Name>ObjectPooler.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="SerializationSaver.Runtime.csproj">
       <Project>{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}</Project>
       <Name>SerializationSaver.Runtime</Name>

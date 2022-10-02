@@ -34,7 +34,8 @@ namespace Mechanics
         private IEnumerator AutoShot()
         {
             yield return new WaitForSeconds(delayShot);
-            Shoot();
+            if (target != null)
+                Shoot();
             StartCoroutine(AutoShot());
         }
 

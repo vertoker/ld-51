@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6055559644696149993}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3609328067908107103}
   m_Layer: 0
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,9 +229,9 @@ GameObject:
   - component: {fileID: 1553993611697434661}
   - component: {fileID: 388009585158944822}
   - component: {fileID: 7421234123316589439}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: NotInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,9 +324,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4401512075439246927}
   - component: {fileID: 8493746967477117317}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Foot
-  m_TagString: Untagged
+  m_TagString: NotInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 3932626845021992333}
   m_Layer: 0
   m_Name: SoundController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 4266498666501899821}
   m_Layer: 0
   m_Name: CharacterView
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
