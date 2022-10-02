@@ -17,9 +17,11 @@ namespace Features.Character.Views
         
         [SerializeField] private BoxCollider groundCheckTrigger;
 
+        [Header("Controllers")]
         [SerializeField] private CharacterSoundController _characterSoundController;
         [SerializeField] private CharacterCameraPresenter _characterCameraPresenter;
-        
+        [SerializeField] private CharacterEffectsPresenter _characterEffectsPresenter;
+
         private CharacterModel _model;
         private CharacterConfig _characterConfig;
         
@@ -31,6 +33,7 @@ namespace Features.Character.Views
             _characterConfig = characterConfig;
             
             _characterSoundController.SetCharacter(_model);
+            _characterEffectsPresenter.SetCharacter(_model);
         }
 
         private void Start()
@@ -75,6 +78,7 @@ namespace Features.Character.Views
                 .Where(_ => _model.Jumpable)
                 .Subscribe(_ =>
                 {
+                    _characterEffectsPresenter.PlayJumpEffect();
                     _characterSoundController.PlayJump();
                     _rigidbody.AddForce(transform.up * _characterConfig.JumpForce, 
                         ForceMode.Impulse);
@@ -130,7 +134,7 @@ namespace Features.Character.Views
                 .AddTo(this);
         }
         
-        public async UniTask SmoothLerpSpeed(float desired)
+        private async UniTask SmoothLerpSpeed(float desired)
         {
             var time = 0f;
             var difference = Mathf.Abs(_model.Speed - desired);
