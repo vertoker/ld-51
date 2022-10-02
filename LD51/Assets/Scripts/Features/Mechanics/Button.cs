@@ -19,7 +19,7 @@ namespace Mechanics
         public float OFFSET_SIZE = 0.5f;
 #endif
 
-        //[SerializeField] private List<> isInstantly = true;
+        [SerializeField] private List<Activatable> subs = new List<Activatable>();
 
         private void Awake()
         {
@@ -32,6 +32,8 @@ namespace Mechanics
             if (isOn)
                 return;
             isOn = true;
+            foreach (var sub in subs)
+                sub.Activate();
             _active.DOLocalMoveY(0.11f, 0.3f);
         }
         public void Unpress()
@@ -39,6 +41,8 @@ namespace Mechanics
             if (!isOn || isInstantly)
                 return;
             isOn = false;
+            foreach (var sub in subs)
+                sub.Deactivate();
             _active.DOLocalMoveY(0.3f, 0.3f);
         }
     }

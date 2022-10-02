@@ -4,5 +4,6 @@
     {
         public float Speed;
         public float JumpForce;
+        public float DashForce;
     }
 }

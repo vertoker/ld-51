@@ -20,11 +20,13 @@ namespace Mechanics
 
         private void OnTriggerEnter(Collider other)
         {
-            other.transform.SetParent(self, true);
+            if (!other.CompareTag("NotInteractable"))
+                other.transform.SetParent(self, true);
         }
         private void OnTriggerExit(Collider other)
         {
-            other.transform.SetParent(null, true);
+            if (!other.CompareTag("NotInteractable"))
+                other.transform.SetParent(null, true);
         }
     }
 }

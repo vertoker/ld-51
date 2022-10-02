@@ -9,11 +9,6 @@ namespace Mechanics
     {
         [SerializeField] private float powerBoost = 20f;
 
-        private void Awake()
-        {
-            Debug.Log(transform.up);
-        }
-
         public void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Rigidbody rb))

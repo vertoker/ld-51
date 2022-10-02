@@ -2,17 +2,19 @@
 using Features.Character.Controllers;
 using Features.Character.Data;
 using Features.Character.Factories;
+using Features.Character.Views;
 using UnityEngine;
-using Zenject;
 
 namespace Features.Character.Service
 {
-    public class CharacterSpawnService : IInitializable
+    public class CharacterSpawnService
     {
         private readonly CharacterMovementController _characterMovementController;
         private readonly CharacterModelFactory _characterModelFactory;
         private readonly CharacterViewFactory _characterViewFactory;
         private readonly CharacterConfig _characterConfig;
+
+        private CharacterView _currentCharacter;
 
         private CharacterSpawnService(CharacterModelFactory characterModelFactory,
             CharacterMovementController characterMovementController,
@@ -30,19 +32,20 @@ namespace Features.Character.Service
             var data = new CharacterData
             {
                 Speed = _characterConfig.Speed,
-                JumpForce = _characterConfig.JumpForce
+                JumpForce = _characterConfig.JumpForce,
+                DashForce = _characterConfig.DashForce
             };
 
             var characterModel = _characterModelFactory.Create(data);
-            var characterView = _characterViewFactory.Create(characterModel);
-            characterView.transform.position = position;
+            _currentCharacter = _characterViewFactory.Create(characterModel);
+            _currentCharacter.transform.position = position;
             
             _characterMovementController.SetCharacter(characterModel);
         }
 
-        public void Initialize()
+        public void TeleportCurrentTo(Vector3 position)
         {
-            SpawnCharacter(Vector3.zero);
+            _currentCharacter.transform.position = position;
         }
     }
 }
