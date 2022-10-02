@@ -44,7 +44,6 @@
      <Compile Include="Assets\Plugins\TextDataLib\Consumers\TDConsumerUIGeneral.cs" />
      <Compile Include="Assets\Plugins\TextDataLib\TextList.cs" />
      <Compile Include="Assets\Plugins\TextDataLib\Instsallers\TextDataInstaller.cs" />
-     <Compile Include="Assets\Plugins\TextDataLib\TextDataCreate.cs" />
      <Compile Include="Assets\Plugins\TextDataLib\TextDataDictionary.cs" />
      <Compile Include="Assets\Plugins\TextDataLib\TextDataLoader.cs" />
      <Compile Include="Assets\Plugins\TextDataLib\TextDataConfig.cs" />
