@@ -33,7 +33,7 @@ namespace Features.Character.Views
             _characterConfig = characterConfig;
             
             _characterSoundController.SetCharacter(_model);
-            _characterEffectsPresenter.SetCharacter(_model);
+            //_characterEffectsPresenter.SetCharacter(_model);
         }
 
         private void Start()

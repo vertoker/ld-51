@@ -10,8 +10,8 @@ namespace Features.Character.Controllers
 {
     public class CharacterEffectsPresenter : MonoBehaviour
     {
-        [SerializeField] private Transform _footstepsHolder;
-        [SerializeField] private Transform _jumpHolder;
+        [SerializeField] private ParticleSystem _footsteps;
+        [SerializeField] private ParticleSystem _jump;
         
         private CharacterModel _characterModel;
         private CharacterConfig _characterConfig;
@@ -29,7 +29,7 @@ namespace Features.Character.Controllers
         
         private void Start()
         {
-            Observable
+            /*Observable
                 .EveryUpdate()
                 .Where(_ => _characterModel.IsMoving.Value &&
                             _characterModel.Grounded.Value)
@@ -41,16 +41,17 @@ namespace Features.Character.Controllers
                     await UniTask.Delay(TimeSpan.FromSeconds(0.25f));
                     Destroy(footsteps);
                 })
-                .AddTo(this);
+                .AddTo(this);*/
         }
 
-        public async void PlayJumpEffect()
+        public void PlayJumpEffect()
         {
-            var jump = Instantiate(_characterConfig.JumpParticles);
+            _jump.Play();
+            /*var jump = Instantiate(_characterConfig.JumpParticles);
             jump.transform.position = _jumpHolder.position;
             
             await UniTask.Delay(TimeSpan.FromSeconds(0.25f));
-            Destroy(jump);
+            Destroy(jump);*/
         }
     }
 }
