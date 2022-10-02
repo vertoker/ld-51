@@ -17,6 +17,6 @@ MonoBehaviour:
   actionButton: 101
   timeStopButton: 113
   menuButton: 27
-  mouseSensitivityX: 100
-  mouseSensitivityY: 100
+  mouseSensitivityX: 220
+  mouseSensitivityY: 220
   mouseLock: {x: -90, y: 90}
