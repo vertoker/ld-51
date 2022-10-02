@@ -25,23 +25,18 @@ namespace Features.Character.Controllers
         public void SetCharacter(CharacterModel characterModel)
         {
             _characterModel = characterModel;
-        }
-        
-        private void Start()
-        {
-            /*Observable
-                .EveryUpdate()
-                .Where(_ => _characterModel.IsMoving.Value &&
-                            _characterModel.Grounded.Value)
+
+            _characterModel.IsMoving
+                .AsObservable()
                 .Subscribe(async _ =>
                 {
-                    var footsteps = Instantiate(_characterConfig.FootstepParticles);
-                    footsteps.transform.position = _footstepsHolder.position;
-
-                    await UniTask.Delay(TimeSpan.FromSeconds(0.25f));
-                    Destroy(footsteps);
+                    if (_characterModel.Grounded.Value && _characterModel.IsMoving.Value)
+                        _footsteps.Play();
+                    else
+                        _footsteps.Stop();
+                    await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
                 })
-                .AddTo(this);*/
+                .AddTo(this);
         }
 
         public void PlayJumpEffect()
