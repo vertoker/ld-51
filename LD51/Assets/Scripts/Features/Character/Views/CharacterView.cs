@@ -60,6 +60,7 @@ namespace Features.Character.Views
 
                     _model.IsMoving.Value = move != Vector3.zero;
                     _model.Grounded.Value = velocity.y == 0f;
+                    //_model.LookDirection.Value = _povCamera.transform.eulerAngles;
 
                     move.Normalize();
                     
@@ -99,8 +100,13 @@ namespace Features.Character.Views
                     _rigidbody.useGravity = false;
                     _model.Dashable = false;
                     
-                    var forceToApply = _model.MovementDirection.Value.normalized * 
-                                       _characterConfig.DashForce;
+                    Vector3 forceToApply;
+                    if (Mathf.Abs(_model.MovementDirection.Value.magnitude) < 1f)
+                        forceToApply = _model.LookDirection.Value.normalized * _characterConfig.DashForce;
+                    else
+                        forceToApply = _model.MovementDirection.Value.normalized * _characterConfig.DashForce;
+                    forceToApply.Set(forceToApply.x, 0f, forceToApply.z);
+
                     _characterMovementPresenter.LockMovement = true;
 
                     //await UniTask.Delay(TimeSpan.FromSeconds(0.025f));
