@@ -113,6 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchPower: 800
+  tr: {fileID: 3974025917041699099}
+  rb: {fileID: 7576781067680544391}
 --- !u!54 &7576781067680544391
 Rigidbody:
   m_ObjectHideFlags: 0

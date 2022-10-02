@@ -12,19 +12,21 @@ namespace Mechanics
         private Transform target;
 
         private bool active = false;
-        private Transform tr;
-        private Rigidbody rb;
+        private bool immortality = true;
+        [SerializeField] private Transform tr;
+        [SerializeField] private Rigidbody rb;
 
-        private void Awake()
-        {
-            tr = GetComponent<Transform>();
-            rb = GetComponent<Rigidbody>();
-        }
         public void SetTarget(Transform target, CallExplosion effect)
         {
-            active = true;
+            rb.velocity = Vector3.zero;
             this.target = target;
             this.effect = effect;
+            active = true;
+        }
+        public IEnumerator DelayActivate()
+        {
+            yield return new WaitForSeconds(0.1f);
+            immortality = false;
         }
         private void FixedUpdate()
         {
@@ -38,7 +40,10 @@ namespace Mechanics
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (immortality)
+                return;
             active = false;
+            immortality = true;
             effect.Invoke(tr.position, gameObject);
         }
     }

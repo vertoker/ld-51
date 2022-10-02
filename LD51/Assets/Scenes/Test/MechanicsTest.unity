@@ -1650,5 +1650,10 @@ PrefabInstance:
       propertyPath: explosionSpawner
       value: 
       objectReference: {fileID: 1293800405}
+    - target: {fileID: 7898427470155073979, guid: 038ac2b8b0ce0ae4ab2cd2613e017824,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 038ac2b8b0ce0ae4ab2cd2613e017824, type: 3}

@@ -60,11 +60,11 @@ namespace Mechanics
         private void Shoot()
         {
             var rocket = rocketSpawner.Dequeue(false).transform;
-            //Debug.LogError(rocket.ToString());
             rocket.position = spawn.position;
             rocket.eulerAngles = new Vector3(0f, angleY, angleZ);
             rocket.GetComponent<Rocket>().SetTarget(target, ExplosionRocket);
             rocket.gameObject.SetActive(true);
+            StartCoroutine(rocket.GetComponent<Rocket>().DelayActivate());
         }
 
         private void ExplosionRocket(Vector3 position, GameObject rocket)
@@ -78,7 +78,7 @@ namespace Mechanics
         private IEnumerator DelayOffExplosion(GameObject explosion)
         {
             yield return new WaitForSeconds(0.3f);
-            rocketSpawner.Enqueue(explosion);
+            explosionSpawner.Enqueue(explosion);
         }
 
 #if UNITY_EDITOR

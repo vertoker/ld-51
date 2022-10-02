@@ -59,16 +59,22 @@
     <Compile Include="Assets\Scripts\Features\Character\Factories\CharacterViewFactory.cs" />
     <Compile Include="Assets\Scripts\Bootstrap\ConfigInstaller.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuButtonBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Placeholder\PlaceholderSpawner.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Models\MenuManagerService.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\RocketLauncherTurrel.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Data\CharacterData.cs" />
+    <Compile Include="Assets\Scripts\Configs\SoundConfig.cs" />
     <Compile Include="Assets\Scripts\Features\SceneSwitcher\Models\SceneLoaderService.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Door.cs" />
     <Compile Include="Assets\Scripts\Features\SceneSwitcher\Messages\SceneSwitcherSignals.cs" />
+    <Compile Include="Assets\Scripts\Features\TokioGhoulGame.cs" />
     <Compile Include="Assets\Scripts\Features\SceneSwitcher\Data\SceneSwitcherRegistry.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\OnObject.cs" />
     <Compile Include="Assets\Scripts\Features\SceneSwitcher\Bootstrap\SceneSwitcherInstaller.cs" />
     <Compile Include="Assets\Scripts\PeachyUtils.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Factories\CharacterModelFactory.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\PlatformMovement.cs" />
+    <Compile Include="Assets\Scripts\Configs\InputConfig.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Bootstrap\MenuBehaviourInstaller.cs" />
     <Compile Include="Assets\Scripts\Models\StorageBase.cs" />
     <Compile Include="Assets\Scripts\Bootstrap\RegistryInstaller.cs" />
@@ -77,13 +83,17 @@
     <Compile Include="Assets\Scripts\Features\Character\Views\CharacterView.cs" />
     <Compile Include="Assets\Scripts\Features\CameraControl\Configs\CameraBehaviourConfig.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Trampoline.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterSoundController.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\CubeMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Service\CharacterSpawnService.cs" />
+    <Compile Include="Assets\Scripts\Data\AudioStateData.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterMovementController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IModel.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Jumper.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Rocket.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Wire.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Installers\CharacterInstaller.cs" />
+    <Compile Include="Assets\Scripts\Data\SoundData.cs" />
     <Compile Include="Assets\Scripts\Features\CameraControl\Views\ActionCameraView.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Models\MenuBehaviourCatchService.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Configs\CharacterConfig.cs" />
@@ -100,16 +110,6 @@
     <Compile Include="Assets\Scripts\Features\UI\Menu\Messages\MenuBehaviourSignals.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IStorage.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\Door.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\RocketLauncherTurrel.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\Rocket.cs" />
-    <Compile Include="Assets\Scripts\Data\SoundData.cs" />
-    <Compile Include="Assets\Scripts\Features\Character\Placeholder\PlaceholderSpawner.cs" />
-    <Compile Include="Assets\Scripts\Data\AudioStateData.cs" />
-    <Compile Include="Assets\Scripts\Configs\SoundConfig.cs" />
-    <Compile Include="Assets\Scripts\Configs\InputConfig.cs" />
-    <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterSoundController.cs" />
-    <Compile Include="Assets\Scripts\Features\TokioGhoulGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
