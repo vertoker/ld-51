@@ -1,6 +1,5 @@
 
-﻿using Features.CameraControl.Configs;
-using Features.Character.Configs;
+
 using Features.Core.Config;
 
 ﻿using Configs;

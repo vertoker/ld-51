@@ -6,7 +6,6 @@
         "UniTask",
         "Zenject",
         "UniTask.TextMeshPro",
-        "ObjectPooler.Runtime",
         "SerializationSaver.Runtime",
         "DOTween.Modules",
         "Unity.TextMeshPro",
