@@ -6,9 +6,9 @@ namespace Mechanics
 {
     public class DeathTrigger : MonoBehaviour
     {
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerStay(Collider other)
         {
-            if (collision.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
                 Debug.Log("Death");
             }

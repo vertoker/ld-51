@@ -21,28 +21,27 @@ namespace Features.Character.Views
         [SerializeField] private CharacterSoundController _characterSoundController;
         [SerializeField] private CharacterCameraPresenter _characterCameraPresenter;
         [SerializeField] private CharacterEffectsPresenter _characterEffectsPresenter;
+        [SerializeField] private CharacterMovementController _characterMovementPresenter;
 
         private CharacterModel _model;
         private CharacterConfig _characterConfig;
-
-        public Rigidbody Rigidbody => _rigidbody;
         
         [Inject]
         public void Construct(CharacterModel characterModel,
-            CharacterConfig characterConfig)
+            CharacterConfig characterConfig, CharacterMovementController characterMovementPresenter)
         {
             _model = characterModel;
             _characterConfig = characterConfig;
-            
+            _characterMovementPresenter = characterMovementPresenter;
+
             _characterSoundController.SetCharacter(_model);
             _characterEffectsPresenter.SetCharacter(_model);
         }
 
         private void Start()
         {
-            
             Observable
-                .EveryFixedUpdate()
+                .EveryUpdate()
                 .Subscribe(_ =>
                 {
                     var velocity = _rigidbody.velocity;
@@ -61,6 +60,7 @@ namespace Features.Character.Views
 
                     _model.IsMoving.Value = move != Vector3.zero;
                     _model.Grounded.Value = velocity.y == 0f;
+                    //_model.LookDirection.Value = _povCamera.transform.eulerAngles;
 
                     move.Normalize();
                     
@@ -100,17 +100,24 @@ namespace Features.Character.Views
                     _rigidbody.useGravity = false;
                     _model.Dashable = false;
                     
-                    var forceToApply = _model.MovementDirection.Value.normalized * 
-                                       _characterConfig.DashForce;
-                    
-                    await UniTask.Delay(TimeSpan.FromSeconds(0.025f * Time.timeScale));
+                    Vector3 forceToApply;
+                    if (Mathf.Abs(_model.MovementDirection.Value.magnitude) < 1f)
+                        forceToApply = _model.LookDirection.Value.normalized * _characterConfig.DashForce;
+                    else
+                        forceToApply = _model.MovementDirection.Value.normalized * _characterConfig.DashForce;
+                    forceToApply.Set(forceToApply.x, 0f, forceToApply.z);
+
+                    _characterMovementPresenter.LockMovement = true;
+
+                    //await UniTask.Delay(TimeSpan.FromSeconds(0.025f));
                     await SmoothLerpSpeed(_characterConfig.DashSpeed);
                     _rigidbody.AddForce(forceToApply, ForceMode.Impulse);
                     
                     await SmoothLerpSpeed(_characterConfig.Speed);
                     
-                    await UniTask.Delay(TimeSpan.FromSeconds(
-                        _characterConfig.DashTime * Time.timeScale));
+                    await UniTask.Delay(TimeSpan.FromSeconds(_characterConfig.DashTime));
+
+                    _characterMovementPresenter.LockMovement = false;
                     _rigidbody.velocity = Vector3.zero;
                     _rigidbody.useGravity = true;
                     _characterCameraPresenter.ChangeFOV(_characterConfig.StandardFOV);

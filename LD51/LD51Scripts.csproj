@@ -85,14 +85,17 @@
     <Compile Include="Assets\Scripts\Features\Mechanics\Trampoline.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterSoundController.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\CubeMenuBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\DeathTrigger.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\GameNamePresenter.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Service\CharacterSpawnService.cs" />
     <Compile Include="Assets\Scripts\Data\AudioStateData.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\FinishLevel.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterMovementController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IModel.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Jumper.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Rocket.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Wire.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Borders.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Installers\CharacterInstaller.cs" />
     <Compile Include="Assets\Scripts\Data\SoundData.cs" />
     <Compile Include="Assets\Scripts\Features\CameraControl\Views\ActionCameraView.cs" />
@@ -112,8 +115,6 @@
     <Compile Include="Assets\Scripts\Features\UI\Menu\Messages\MenuBehaviourSignals.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IStorage.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\FinishLevel.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\DeathTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
