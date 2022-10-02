@@ -60,7 +60,6 @@
     <Compile Include="Assets\Plugins\SerializationSaver\Demo\DemoClass.cs" />
     <Compile Include="Assets\Plugins\SerializationSaver\Demo\LoadTest.cs" />
     <Compile Include="Assets\Plugins\SerializationSaver\Demo\SaveTest.cs" />
-    <Compile Include="Assets\Plugins\ObjectPooler\Example\ScreenSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -904,10 +903,6 @@
     <ProjectReference Include="UniRx.csproj">
       <Project>{82B714DE-B690-AB68-D46C-9466168FAF42}</Project>
       <Name>UniRx</Name>
-    </ProjectReference>
-    <ProjectReference Include="ObjectPooler.Runtime.csproj">
-      <Project>{DC7C6854-2831-65A2-F9AC-B2DC1AF2D124}</Project>
-      <Name>ObjectPooler.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Analytics.csproj">
       <Project>{E1D476BD-9FF1-7F77-EE81-565F1C7C98B1}</Project>

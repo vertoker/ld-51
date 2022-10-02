@@ -15,3 +15,4 @@ MonoBehaviour:
   _cameraBehaviourConfig: {fileID: 11400000, guid: 8add7d9021d2d96419482e32f78d234d,
     type: 2}
   _characterConfig: {fileID: 11400000, guid: 38215ae832963e4438ba7478c4069b8f, type: 2}
+  _levelListConfig: {fileID: 11400000, guid: 047d8f96fed9f46439101c87291a43dd, type: 2}

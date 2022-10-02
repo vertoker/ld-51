@@ -9,15 +9,43 @@ namespace Placeholders.Core
     public class PlaceholderEventTrigger : MonoBehaviour
     {
         
-        [Inject]
+       
         private CoreEvents coreEvents;
+        private CoreData coreData;
+
+        [Inject]
+        private void Init(CoreData coreData, CoreEvents coreEvents)
+        {
+            this.coreData = coreData;
+            this.coreEvents = coreEvents;
+        }
 
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.P)) 
+
+            InputTrigger();
+            PauseTrigger();
+            
+        }
+
+        void InputTrigger()
+        {
+            if (coreData.isPaused)
+                return;
+
+            if (Input.GetMouseButtonDown(1))
             {
-                coreEvents.OnSlowdownTimePress?.Invoke();
+                coreEvents.OnSlowdownTimePressed?.Invoke(!coreData.isSlowedDown);
+            }
+
+        }
+
+        void PauseTrigger() 
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                coreEvents.OnPauseButtonPressed?.Invoke(!coreData.isPaused);
             }
         }
     }

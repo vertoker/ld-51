@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Zenject;
+using System.Globalization;
 
 namespace Features.Core.UI 
 {
@@ -20,7 +21,8 @@ namespace Features.Core.UI
 
         private void Update() 
         {
-            timerRenderer.text = timerPrefix + $"{data.timer:F2}";
+            timerRenderer.text = timerPrefix + data.timer.
+                ToString("F2", CultureInfo.CreateSpecificCulture("en-US"));
         }
     }
 }

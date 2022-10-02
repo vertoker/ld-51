@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,35 +6,53 @@ using Zenject;
 
 namespace Features.Core 
 {
-    public class CoreEvents
+    public class CoreEvents : System.IDisposable
     {
         
         private CoreData data;
 
        
-
-        public System.Action OnTimersUp;
-        public System.Action OnSlowdownTimePress;
+        
+        public System.Action<bool> OnSlowdownTimePressed;
+        public System.Action<bool> OnPauseButtonPressed;
 
         public System.Action OnLevelComplete;
+        public System.Action OnTimersUp;
+
 
         [Inject]
         public CoreEvents(CoreData coreData) 
         {
             data = coreData;
 
-            OnSlowdownTimePress += Slowdown;
+            OnSlowdownTimePressed += Slowdown;
+            OnPauseButtonPressed += Pause;
             
         }
-
-        void Slowdown() 
+        public void Dispose()
         {
-            data.isSlowedDown = !data.isSlowedDown;
+            OnSlowdownTimePressed -= Slowdown;
+            OnPauseButtonPressed -= Pause;
+        }
 
-            Time.timeScale = data.isSlowedDown ? CoreData.c_slowedTimeScale : 1f;
+        void Slowdown(bool isSlowedDown) 
+        {
+            data.isSlowedDown = isSlowedDown;
+
+            data.timeScale = data.isSlowedDown ? CoreData.c_slowedTimeScale : 1f;
+
+            Time.timeScale = data.timeScale;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
 
+        void Pause(bool isPaused) 
+        {
+            data.isPaused = isPaused;
+
+            Time.timeScale = data.isPaused ? 0f : data.timeScale;
+        }
+
+        
     }
 }
 
