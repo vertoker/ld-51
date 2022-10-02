@@ -1,8 +1,10 @@
 ﻿using System;
 using Features.Character.Data;
+using UnityEngine.EventSystems;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using UnityEngine.Events;
 
 namespace Features.Character.Models
 {

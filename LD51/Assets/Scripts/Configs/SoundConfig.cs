@@ -12,7 +12,9 @@ namespace Configs
 
         public List<AudioClip> GetSoundsByType(SoundType type)
         {
-            return sounds.FirstOrDefault(data => data.SoundType == type)?.MixedSounds;
+            return sounds.
+                FirstOrDefault(data => data.SoundType == type)?.
+                MixedSounds;
         }
     }
 }

@@ -15,5 +15,9 @@ MonoBehaviour:
   _cameraBehaviourConfig: {fileID: 11400000, guid: 8add7d9021d2d96419482e32f78d234d,
     type: 2}
   _characterConfig: {fileID: 11400000, guid: 38215ae832963e4438ba7478c4069b8f, type: 2}
+  _levelListConfig: {fileID: 11400000, guid: 047d8f96fed9f46439101c87291a43dd, type: 2}
   _soundConfig: {fileID: 11400000, guid: e4da923da0431e84ca0b6b5e1d3ad07c, type: 2}
   _inputConfig: {fileID: 11400000, guid: 19a2d8c77ae074641b8c802e9de5947e, type: 2}
+  _soundConfig: {fileID: 11400000, guid: e4da923da0431e84ca0b6b5e1d3ad07c, type: 2}
+  _inputConfig: {fileID: 11400000, guid: 19a2d8c77ae074641b8c802e9de5947e, type: 2}
+

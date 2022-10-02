@@ -6,10 +6,12 @@
         "UniTask",
         "Zenject",
         "UniTask.TextMeshPro",
-        "ObjectPooler.Runtime",
         "SerializationSaver.Runtime",
         "DOTween.Modules",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime",
+        "ObjectPooler.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -67,7 +67,7 @@ namespace Features.Character.Controllers
                         if (Input.GetKeyDown(_inputConfig.TimeStopButton))
                             MessageBroker.Default.Publish(new CharacterModel.TimeManageSwitch());
 
-                        _characterModel.MovementDirection.Value = 
+                        _characterModel.MovementDirection.Value =
                             new Vector3(horizontal, 0, depth);
                     }
                     

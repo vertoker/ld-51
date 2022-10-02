@@ -30,3 +30,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 1e9cbcdf82e266349b8d27ff7165b3dc, type: 3}
     - {fileID: 8300000, guid: ee718253a3cb92b498fb788898fbdba5, type: 3}
     - {fileID: 8300000, guid: 11700910472bacc4db420cc30fbe9b75, type: 3}
+  - soundType: 5
+    mixedSounds:
+    - {fileID: 8300000, guid: c88d20ebecda03b41a1aeeef4e3a4ab7, type: 3}
+  - soundType: 6
+    mixedSounds:
+    - {fileID: 8300000, guid: 2e8b5f5c213289f4bb47a180b16fe926, type: 3}

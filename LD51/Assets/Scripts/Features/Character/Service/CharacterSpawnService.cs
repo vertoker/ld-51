@@ -16,6 +16,8 @@ namespace Features.Character.Service
 
         private CharacterView _currentCharacter;
 
+        public CharacterView CharacterView => _currentCharacter;
+
         private CharacterSpawnService(CharacterModelFactory characterModelFactory,
             CharacterMovementController characterMovementController,
             CharacterViewFactory characterViewFactory,
@@ -45,7 +47,22 @@ namespace Features.Character.Service
 
         public void TeleportCurrentTo(Vector3 position)
         {
+            _currentCharacter.gameObject.SetActive(false);
+
+            _currentCharacter.ResetVelocity();
+
             _currentCharacter.transform.position = position;
+
+            _currentCharacter.gameObject.SetActive(true);
+        }
+
+        public void DeactivateCharacter() 
+        {
+            _currentCharacter.gameObject.SetActive(false);
+        }
+        public void ReactivateCharacter()
+        {
+            _currentCharacter.gameObject.SetActive(true);
         }
     }
 }
