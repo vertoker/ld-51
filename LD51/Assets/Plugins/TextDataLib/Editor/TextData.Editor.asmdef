@@ -3,9 +3,12 @@
     "rootNamespace": "TextDataLib.Editor",
     "references": [
         "GUID:fdb76d5ae79ace9458523cfd9eb311c4",
-        "GUID:1a6e12463e11f9a4dae3c7d7262977f5"
+        "GUID:1a6e12463e11f9a4dae3c7d7262977f5",
+        "GUID:6546d7765b4165b40850b3667f981c26"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
