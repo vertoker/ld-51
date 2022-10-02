@@ -10,7 +10,8 @@
         "DOTween.Modules",
         "Unity.TextMeshPro",
         "Unity.RenderPipelines.Universal.Runtime",
-        "Unity.RenderPipelines.Core.Runtime"
+        "Unity.RenderPipelines.Core.Runtime",
+        "ObjectPooler.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
