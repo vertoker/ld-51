@@ -34,12 +34,6 @@ ehthumbs.db
 Thumbs.db
 =======
 Thumbs.db
-LD51/LD51Scripts.csproj
-LD51/UserSettings/EditorUserSettings.asset
-LD51/LD51Scripts.csproj
-*.csproj
-LD51/UpgradeLog.htm
-LD51/LD51.sln
-LD51/*.csproj
 
-LD51/Zenject-EditorTests.csproj
+*.csproj
+*.sln
