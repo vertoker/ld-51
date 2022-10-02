@@ -11,7 +11,9 @@ namespace Features.Character.Views
         [SerializeField] private Camera _povCamera;
         [SerializeField] private Rigidbody _rigidbody;
         
-        [SerializeField] private BoxCollider _groundCheckTrigger;
+        [SerializeField] private BoxCollider groundCheckTrigger;
+
+        [SerializeField] private CharacterSoundController _characterSoundController;
         
         private CharacterModel _model;
         
@@ -19,6 +21,8 @@ namespace Features.Character.Views
         public void Construct(CharacterModel characterModel)
         {
             _model = characterModel;
+            
+            _characterSoundController.SetCharacter(_model);
         }
 
         private void Start()
@@ -27,12 +31,18 @@ namespace Features.Character.Views
                 .EveryUpdate()
                 .Subscribe(_ =>
                 {
-                    var move = _rigidbody.velocity;
+                    var velocity = _rigidbody.velocity;
+                    var move = velocity;
                     move.y = 0f;
                     var distance = move.magnitude * Time.fixedDeltaTime;
+                    
+                    
+                    _model.IsMoving.Value = move != Vector3.zero;
+                    _model.Grounded.Value = velocity.y == 0f;
+                    
                     move.Normalize();
                     
-                    var movement = _rigidbody.SweepTest(move, out var hit, distance) 
+                    var movement = _rigidbody.SweepTest(move, out var _, distance) 
                     ? Vector3.zero : transform.TransformDirection(
                             _model.MovementDirection.Value);
                     
@@ -62,7 +72,7 @@ namespace Features.Character.Views
                 .Subscribe(_ =>
                 {
                     _rigidbody.AddForce(transform.forward * _model.DashForce, 
-                        ForceMode.Impulse);
+                        ForceMode.Acceleration);
                     _model.Dashable = false;
                 })
                 .AddTo(this);
@@ -78,7 +88,7 @@ namespace Features.Character.Views
                 })
                 .AddTo(this);
             
-            _groundCheckTrigger
+            groundCheckTrigger
                 .OnTriggerStayAsObservable()
                 .Subscribe(_ =>
                 {

@@ -2,12 +2,18 @@ using Features.Character.Service;
 using UnityEngine;
 using Zenject;
 
-namespace Features.Character._Placeholder
+namespace Features.Character.Placeholder
 {
     public class PlaceholderSpawner : MonoBehaviour
     {
-        [Inject]
         private CharacterSpawnService _characterSpawnService;
+
+        [Inject]
+        public void Construct(CharacterSpawnService characterSpawnService)
+        {
+            _characterSpawnService = characterSpawnService;
+        }
+        
         private void Start()
         {
             _characterSpawnService.SpawnCharacter(Vector3.zero);

@@ -1,4 +1,6 @@
-﻿using Features.Character.Models;
+﻿using Configs;
+using Features.Character.Configs;
+using Features.Character.Models;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -13,21 +15,16 @@ namespace Features.Character.Controllers
         private const string HorizontalLook = "Mouse X";
         private const string VerticalLook = "Mouse Y";
         
-        private const float MouseSensitivityX = 100f;
-       
-
-        private static readonly Vector2 MouseLock = new (-90f, 90f);
-
-        private const KeyCode Jump = KeyCode.Space;
-        private const KeyCode Dash = KeyCode.LeftShift;
-        
         private CharacterModel _characterModel;
         private Vector2 _look;
-        
+
+        private readonly InputConfig _inputConfig;
         private readonly CompositeDisposable _compositeDisposable;
         
-        private CharacterMovementController()
+        private CharacterMovementController(InputConfig inputConfig)
         {
+            _inputConfig = inputConfig;
+            
             _compositeDisposable = new CompositeDisposable();
         }
         
@@ -37,24 +34,25 @@ namespace Features.Character.Controllers
             
             Observable
                 .EveryUpdate()
-               
+                .Where(_ => _characterModel != null)
                 .Subscribe(_ =>
                 {
                     var horizontal = Input.GetAxis(HorizontalMovement);
                     var depth = Input.GetAxis(DepthMovement);
 
-                    _look.x = Input.GetAxis(HorizontalLook) * MouseSensitivityX * 
+                    _look.x = Input.GetAxis(HorizontalLook) * _inputConfig.MouseSensitivityX * 
                         Time.unscaledDeltaTime;
                     _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook),
-                        MouseLock.x, MouseLock.y);
-
+                        _inputConfig.MouseLock.x, _inputConfig.MouseLock.y);
                     
-
-                    if (Input.GetKeyDown(Jump))
+                    if (Input.GetKeyDown(_inputConfig.JumpButton))
                         MessageBroker.Default.Publish(new CharacterModel.Jump());
                     
-                    if (Input.GetKeyDown(Dash))
+                    if (Input.GetKeyDown(_inputConfig.DashButton))
                         MessageBroker.Default.Publish(new CharacterModel.Dash());
+
+                    if (Input.GetKeyDown(_inputConfig.MenuButton))
+                        Cursor.lockState = CursorLockMode.None;
 
                     _characterModel.MovementDirection.Value = 
                         new Vector3(horizontal, 0, depth);

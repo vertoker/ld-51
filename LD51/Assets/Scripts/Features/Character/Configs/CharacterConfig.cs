@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Features.Character.Configs
 {
-    [CreateAssetMenu(fileName = "CharacterConfig", menuName = "Config/Character")]
+    [CreateAssetMenu(fileName = "CharacterConfig", menuName = "Config/Character config")]
     public class CharacterConfig : ScriptableObject
     {
         [SerializeField] private CharacterView _characterPrefab;
