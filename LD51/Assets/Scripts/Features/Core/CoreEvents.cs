@@ -17,7 +17,7 @@ namespace Features.Core
         public System.Action<bool> OnPauseButtonPressed;
 
         public System.Action OnLevelComplete;
-        public System.Action OnTimersUp;
+        public System.Action OnGameOver;
 
 
         [Inject]

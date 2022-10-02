@@ -27,13 +27,13 @@ namespace Features.Core.Mono
         private void OnEnable()
         {
             events.OnSlowdownTimePressed += PlayTimeSlowSFX;
-            events.OnTimersUp += StopAll;
+            events.OnGameOver += StopAll;
         }
 
         private void OnDisable()
         {
             events.OnSlowdownTimePressed -= PlayTimeSlowSFX;
-            events.OnTimersUp -= StopAll;
+            events.OnGameOver -= StopAll;
         }
 
         // Start is called before the first frame update

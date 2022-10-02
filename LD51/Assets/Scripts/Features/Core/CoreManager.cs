@@ -79,13 +79,13 @@ namespace Features.Core.Mono
 
         private void OnEnable()
         {
-            events.OnTimersUp += GameOver;
+            events.OnGameOver += GameOver;
             events.OnLevelComplete += LoadNextLevel;
         }
 
         private void OnDisable()
         {
-            events.OnTimersUp -= GameOver;
+            events.OnGameOver -= GameOver;
             events.OnLevelComplete -= LoadNextLevel;
         }
 
@@ -122,7 +122,8 @@ namespace Features.Core.Mono
             playerSpawner.DeactivateCharacter();
             StopTimer();
             ++data.currentLevel;
-            m_curLevelConfig = levelList.levelList[data.currentLevel];
+            if (data.currentLevel <= m_levelListCount)
+                m_curLevelConfig = levelList.levelList[data.currentLevel-1];
             data.Init();
 
             bool isLevel = UpdateSceneToLoad();
@@ -130,7 +131,7 @@ namespace Features.Core.Mono
             {
                 playerSpawner.
                     TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
-                SceneManager.UnloadSceneAsync(m_sceneToLoad);
+                SceneManager.UnloadSceneAsync(m_sceneToLoad-1);
 
                 SceneManager.sceneUnloaded -= AfterSceneUnload;
                 SceneManager.sceneUnloaded += AfterSceneUnload;
@@ -169,8 +170,9 @@ namespace Features.Core.Mono
 
             StartTimer();
 
-            m_isRestarting = !m_isRestarting || false;
-            m_isLoading = !m_isLoading || false;
+            m_isRestarting = false;
+            m_isLoading = false;
+
         }
 
         private void StartTimer() 
@@ -202,7 +204,7 @@ namespace Features.Core.Mono
                 yield return null;
             }
 
-            events.OnTimersUp?.Invoke();
+            events.OnGameOver?.Invoke();
             
         }
 
@@ -210,6 +212,7 @@ namespace Features.Core.Mono
         private void GameOver() 
         {
             RestartLevel();
+            Debug.Log($"Ìîðøåíøòåðí — ÏÎÑÎÑÈ {m_isRestarting}");
         }
 
         

@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a9315c91abbc774a8038c8f8b6abb86, type: 3}
-  m_Name: LevelListConfigTest
+  m_Script: {fileID: 11500000, guid: e1b8997b20f49dc41b060efa95acb23a, type: 3}
+  m_Name: Level1
   m_EditorClassIdentifier: 
-  levelList:
-  - {fileID: 11400000, guid: eb1b48f481b00dc45a2ffd3fe2bbc4c6, type: 2}
-  - {fileID: 11400000, guid: eb1b48f481b00dc45a2ffd3fe2bbc4c6, type: 2}
+  playerSpawnPosition: {x: -40, y: 6.6, z: -40}

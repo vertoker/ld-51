@@ -16,6 +16,8 @@ namespace Features.Character.Service
 
         private CharacterView _currentCharacter;
 
+        public CharacterView CharacterView => _currentCharacter;
+
         private CharacterSpawnService(CharacterModelFactory characterModelFactory,
             CharacterMovementController characterMovementController,
             CharacterViewFactory characterViewFactory,
@@ -47,8 +49,7 @@ namespace Features.Character.Service
         {
             _currentCharacter.gameObject.SetActive(false);
 
-            _currentCharacter.Rigidbody.velocity = Vector3.zero;
-            _currentCharacter.Rigidbody.angularVelocity = Vector3.zero;
+            _currentCharacter.ResetVelocity();
 
             _currentCharacter.transform.position = position;
 
