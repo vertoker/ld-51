@@ -84,7 +84,7 @@
      <Compile Include="Assets\Scripts\Features\Character\Placeholder\PlaceholderSpawner.cs" />
      <Compile Include="Assets\Scripts\Features\TokioGhoulGame.cs" />
      <Compile Include="Assets\Scripts\Configs\InputConfig.cs" />
-     <Compile Include="Assets\Scripts\Features\Character\Views\CharacterSoundController.cs" />
+     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterSoundController.cs" />
      <Compile Include="Assets\Scripts\Configs\SoundConfig.cs" />
      <Compile Include="Assets\Scripts\Data\SoundData.cs" />
      <Compile Include="Assets\Scripts\Data\AudioStateData.cs" />

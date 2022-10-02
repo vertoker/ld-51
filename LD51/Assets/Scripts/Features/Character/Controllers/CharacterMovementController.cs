@@ -1,5 +1,4 @@
 ﻿using Configs;
-using Features.Character.Configs;
 using Features.Character.Models;
 using UniRx;
 using UnityEngine;
@@ -42,7 +41,8 @@ namespace Features.Character.Controllers
 
                     _look.x = Input.GetAxis(HorizontalLook) * _inputConfig.MouseSensitivityX * 
                         Time.unscaledDeltaTime;
-                    _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook),
+                    _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook) * _inputConfig.MouseSensitivityY * 
+                        Time.unscaledDeltaTime,
                         _inputConfig.MouseLock.x, _inputConfig.MouseLock.y);
                     
                     if (Input.GetKeyDown(_inputConfig.JumpButton))

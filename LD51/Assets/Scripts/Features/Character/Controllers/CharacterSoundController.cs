@@ -5,7 +5,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Features.Character.Views
+namespace Features.Character.Controllers
 {
     public class CharacterSoundController : MonoBehaviour
     {

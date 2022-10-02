@@ -15,6 +15,8 @@ namespace Configs
         [Header("Mouse input settings")]
         [Range(0f, 250f)]
         [SerializeField] private float mouseSensitivityX;
+        [Range(0f, 250f)]
+        [SerializeField] private float mouseSensitivityY;
         [SerializeField] private Vector2 mouseLock;
 
         public KeyCode JumpButton => jumpButton;
@@ -24,6 +26,7 @@ namespace Configs
         public KeyCode MenuButton => menuButton;
 
         public float MouseSensitivityX => mouseSensitivityX;
+        public float MouseSensitivityY => mouseSensitivityY;
         public Vector2 MouseLock => mouseLock;
     }
 }

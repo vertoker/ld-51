@@ -1,4 +1,5 @@
-﻿using Features.Character.Models;
+﻿using Features.Character.Controllers;
+using Features.Character.Models;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -72,7 +73,7 @@ namespace Features.Character.Views
                 .Subscribe(_ =>
                 {
                     _rigidbody.AddForce(transform.forward * _model.DashForce, 
-                        ForceMode.Acceleration);
+                        ForceMode.Impulse);
                     _model.Dashable = false;
                 })
                 .AddTo(this);

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5cb54f978c444899a05e7fac03a1e6d, type: 3}
   m_Name: InputConfig
   m_EditorClassIdentifier: 
-  jumpButton: 0
-  dashButton: 0
-  actionButton: 0
-  timeStopButton: 0
-  menuButton: 0
-  mouseSensitivityX: 0
-  mouseLock: {x: 0, y: 0}
+  jumpButton: 32
+  dashButton: 304
+  actionButton: 101
+  timeStopButton: 113
+  menuButton: 27
+  mouseSensitivityX: 100
+  mouseLock: {x: -90, y: 90}

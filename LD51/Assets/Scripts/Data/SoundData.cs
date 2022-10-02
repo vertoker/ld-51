@@ -12,7 +12,7 @@ namespace Data
         Dash,
         Fall,
         TimeStop,
-        TimeContinue
+        TimeContinue,
     }
     
     [Serializable]
