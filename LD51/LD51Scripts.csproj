@@ -103,6 +103,13 @@
     <Compile Include="Assets\Scripts\Features\Mechanics\Door.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\RocketLauncherTurrel.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Rocket.cs" />
+    <Compile Include="Assets\Scripts\Data\SoundData.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Placeholder\PlaceholderSpawner.cs" />
+    <Compile Include="Assets\Scripts\Data\AudioStateData.cs" />
+    <Compile Include="Assets\Scripts\Configs\SoundConfig.cs" />
+    <Compile Include="Assets\Scripts\Configs\InputConfig.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterSoundController.cs" />
+    <Compile Include="Assets\Scripts\Features\TokioGhoulGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RocketPool
   m_EditorClassIdentifier: 
   _object: {fileID: 3974025917041699175, guid: e60f29fb0539dd941955ed0292550322, type: 3}
-  _startCapacity: 5
+  _startCapacity: 20

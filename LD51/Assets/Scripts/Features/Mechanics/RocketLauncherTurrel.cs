@@ -16,8 +16,10 @@ namespace Mechanics
         [SerializeField] private float angleY = 0f;
         [SerializeField] private float angleZ = 0f;
         [SerializeField] private float durationRotation = 0.3f;
+        [SerializeField] private float delayShot = 0.4f;
         [SerializeField] private Transform axis, box, spawn;
         [SerializeField] private PoolSpawner rocketSpawner;
+        [SerializeField] private PoolSpawner explosionSpawner;
         [SerializeField] private Transform target;
 
         public void SetTarget(Transform target)
@@ -25,11 +27,21 @@ namespace Mechanics
 
         }
 
+        private void Start()
+        {
+            StartCoroutine(AutoShot());
+        }
+        private IEnumerator AutoShot()
+        {
+            yield return new WaitForSeconds(delayShot);
+            Shoot();
+            StartCoroutine(AutoShot());
+        }
+
         private void FixedUpdate()
         {
             UpdateAngle();
         }
-
         private void UpdateAngle()
         {
             if (target == null)
@@ -44,13 +56,29 @@ namespace Mechanics
             axis.eulerAngles = new Vector3(axis.eulerAngles.x, angleY, axis.eulerAngles.z);
             box.eulerAngles = new Vector3(box.eulerAngles.x, angleY, angleZ);
         }
+
         private void Shoot()
         {
             var rocket = rocketSpawner.Dequeue(false).transform;
+            //Debug.LogError(rocket.ToString());
             rocket.position = spawn.position;
             rocket.eulerAngles = new Vector3(0f, angleY, angleZ);
-            rocket.GetComponent<Rocket>().SetTarget(target);
+            rocket.GetComponent<Rocket>().SetTarget(target, ExplosionRocket);
             rocket.gameObject.SetActive(true);
+        }
+
+        private void ExplosionRocket(Vector3 position, GameObject rocket)
+        {
+            rocketSpawner.Enqueue(rocket);
+            var effect = explosionSpawner.Dequeue();
+            effect.transform.position = position;
+            effect.GetComponent<ParticleSystem>().Play();
+            StartCoroutine(DelayOffExplosion(effect));
+        }
+        private IEnumerator DelayOffExplosion(GameObject explosion)
+        {
+            yield return new WaitForSeconds(0.3f);
+            rocketSpawner.Enqueue(explosion);
         }
 
 #if UNITY_EDITOR
@@ -76,4 +104,6 @@ namespace Mechanics
         }
 #endif
     }
+
+    public delegate void CallExplosion(Vector3 position, GameObject rocket);
 }

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterPrefab: {fileID: 3999668486007306815, guid: 1a9c9106d15169343ad3324b1d6a6bdc,
     type: 3}
-  _speed: 5
-  _jumpForce: 5
+  _speed: 20
+  _jumpForce: 7
+  _dashForce: 100
