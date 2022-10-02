@@ -61,7 +61,7 @@ namespace Features.Character.Views
 
                     _model.IsMoving.Value = move != Vector3.zero;
                     _model.Grounded.Value = velocity.y == 0f;
-                    
+
                     move.Normalize();
                     
                     var movement = _rigidbody.SweepTest(move, out var _, distance) 
