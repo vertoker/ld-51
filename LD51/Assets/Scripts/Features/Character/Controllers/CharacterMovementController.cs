@@ -1,5 +1,6 @@
 ﻿using System;
 using Configs;
+using Data;
 using Features.Character.Models;
 using UniRx;
 using UnityEngine;
@@ -36,6 +37,13 @@ namespace Features.Character.Controllers
         public void Initialize()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            var mouseSense = PlayerPrefs.HasKey(GlobalConst.MouseSensitivityPref) 
+                ? PlayerPrefs.GetFloat(GlobalConst.MouseSensitivityPref)
+                : 10f;
+                
+#if UNITY_EDITOR
+            mouseSense = _inputConfig.MouseSensitivityX;
+#endif
             
             Observable
                 .EveryUpdate()
@@ -64,9 +72,9 @@ namespace Features.Character.Controllers
                     }
                     
                     if (LockMouse) return;
-                    _look.x = Input.GetAxis(HorizontalLook) * _inputConfig.MouseSensitivityX * 
+                    _look.x = Input.GetAxis(HorizontalLook) * mouseSense * 
                               Time.unscaledDeltaTime;
-                    _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook) * _inputConfig.MouseSensitivityY * 
+                    _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook) * mouseSense * 
                         Time.unscaledDeltaTime,
                         _inputConfig.MouseLock.x, _inputConfig.MouseLock.y);
                     

@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx.Examples", "UniRx.Exa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extenject-Addressable-Tests", "Extenject-Addressable-Tests.csproj", "{49d4320b-ed55-ff31-aba1-0dc5bc826b0b}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectPooler.Runtime", "ObjectPooler.Runtime.csproj", "{54687cdc-3128-a265-f9ac-b2dc1af2d124}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Async.Tests", "Async.Tests.csproj", "{6188e136-840a-291c-a14d-5a73aeb6f1c6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-PoolMonitor-Editor", "Zenject-PoolMonitor-Editor.csproj", "{d38e174d-aea6-2b22-62f0-7486f04b9376}"
@@ -76,6 +78,8 @@ Global
 		{8bbc74e5-4d00-d0f4-ecfb-68c91ac1444a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49d4320b-ed55-ff31-aba1-0dc5bc826b0b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{49d4320b-ed55-ff31-aba1-0dc5bc826b0b}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54687cdc-3128-a265-f9ac-b2dc1af2d124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54687cdc-3128-a265-f9ac-b2dc1af2d124}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6188e136-840a-291c-a14d-5a73aeb6f1c6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6188e136-840a-291c-a14d-5a73aeb6f1c6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d38e174d-aea6-2b22-62f0-7486f04b9376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

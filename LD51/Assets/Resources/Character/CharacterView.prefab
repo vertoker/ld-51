@@ -359,6 +359,52 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7710701578893575043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3032761895495199139}
+  - component: {fileID: 1987755709573633604}
+  m_Layer: 0
+  m_Name: EffectController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3032761895495199139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710701578893575043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3330490706762787403}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1987755709573633604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710701578893575043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ad9e706f1a43f8acba64040c7f2e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _footstepsHolder: {fileID: 4401512075439246927}
+  _jumpHolder: {fileID: 4401512075439246927}
 --- !u!1 &7965962692378259964
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +875,7 @@ Transform:
   - {fileID: 2892328774140956461}
   - {fileID: 8950729147292960330}
   - {fileID: 5662231003232115809}
+  - {fileID: 3032761895495199139}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -849,6 +896,7 @@ MonoBehaviour:
   groundCheckTrigger: {fileID: 4266498666501899821}
   _characterSoundController: {fileID: 7855894315643833421}
   _characterCameraPresenter: {fileID: 3214648460865507461}
+  _characterEffectsPresenter: {fileID: 1987755709573633604}
 --- !u!54 &9056106077442510076
 Rigidbody:
   m_ObjectHideFlags: 0

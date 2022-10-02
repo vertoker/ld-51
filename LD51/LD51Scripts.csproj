@@ -86,6 +86,19 @@
      <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
      <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterEffectsPresenter.cs" />
      <Compile Include="Assets\Scripts\Features\UI\Menu\Views\GameNamePresenter.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\Rocket.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\Wire.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\ButtonActivate.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\Activatable.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\Jumper.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\PlatformMovement.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\Trampoline.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\Door.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\Button.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\OnObject.cs" />
+     <Compile Include="Assets\Scripts\Features\Mechanics\RocketLauncherTurrel.cs" />
+     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSlidersController.cs" />
+     <Compile Include="Assets\Scripts\Data\GlobalConst.cs" />
      <None Include="Assets\Scripts\LD51Scripts.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -717,6 +730,9 @@
      <Reference Include="UniTask.TextMeshPro">
      <HintPath>D:\Development\needed\our banges\unity\jams\LD51\LD51\Library\ScriptAssemblies\UniTask.TextMeshPro.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.TextMeshPro">
+     <HintPath>D:\Development\needed\our banges\unity\jams\LD51\LD51\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>D:\Development\needed\our banges\unity\jams\LD51\LD51\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
@@ -734,7 +750,7 @@
       <Name>Zenject</Name>
     </ProjectReference>
     <ProjectReference Include="ObjectPooler.Runtime.csproj">
-      <Project>{DC7C6854-2831-65A2-F9AC-B2DC1AF2D124}</Project>
+      <Project>{54687cdc-3128-a265-f9ac-b2dc1af2d124}</Project>
       <Name>ObjectPooler.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="SerializationSaver.Runtime.csproj">

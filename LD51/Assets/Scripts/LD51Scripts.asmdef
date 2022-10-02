@@ -8,7 +8,8 @@
         "UniTask.TextMeshPro",
         "ObjectPooler.Runtime",
         "SerializationSaver.Runtime",
-        "DOTween.Modules"
+        "DOTween.Modules",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
