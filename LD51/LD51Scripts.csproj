@@ -115,6 +115,8 @@
     <Compile Include="Assets\Scripts\Features\UI\Menu\Messages\MenuBehaviourSignals.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IStorage.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\DeathCollider.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\FollowTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
