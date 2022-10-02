@@ -21,17 +21,19 @@ namespace Features.Character.Views
         [SerializeField] private CharacterSoundController _characterSoundController;
         [SerializeField] private CharacterCameraPresenter _characterCameraPresenter;
         [SerializeField] private CharacterEffectsPresenter _characterEffectsPresenter;
+        [SerializeField] private CharacterMovementController _characterMovementPresenter;
 
         private CharacterModel _model;
         private CharacterConfig _characterConfig;
         
         [Inject]
         public void Construct(CharacterModel characterModel,
-            CharacterConfig characterConfig)
+            CharacterConfig characterConfig, CharacterMovementController characterMovementPresenter)
         {
             _model = characterModel;
             _characterConfig = characterConfig;
-            
+            _characterMovementPresenter = characterMovementPresenter;
+
             _characterSoundController.SetCharacter(_model);
             _characterEffectsPresenter.SetCharacter(_model);
         }
@@ -99,14 +101,17 @@ namespace Features.Character.Views
                     
                     var forceToApply = _model.MovementDirection.Value.normalized * 
                                        _characterConfig.DashForce;
-                    
-                    await UniTask.Delay(TimeSpan.FromSeconds(0.025f));
+                    _characterMovementPresenter.LockMovement = true;
+
+                    //await UniTask.Delay(TimeSpan.FromSeconds(0.025f));
                     await SmoothLerpSpeed(_characterConfig.DashSpeed);
                     _rigidbody.AddForce(forceToApply, ForceMode.Impulse);
                     
                     await SmoothLerpSpeed(_characterConfig.Speed);
                     
                     await UniTask.Delay(TimeSpan.FromSeconds(_characterConfig.DashTime));
+
+                    _characterMovementPresenter.LockMovement = false;
                     _rigidbody.velocity = Vector3.zero;
                     _rigidbody.useGravity = true;
                     _characterCameraPresenter.ChangeFOV(_characterConfig.StandardFOV);

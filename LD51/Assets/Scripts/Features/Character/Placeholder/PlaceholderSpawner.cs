@@ -16,7 +16,7 @@ namespace Features.Character.Placeholder
         
         private void Start()
         {
-            _characterSpawnService.SpawnCharacter(Vector3.zero);
+            _characterSpawnService.SpawnCharacter(transform.position);
         }
     }
 }
