@@ -50,7 +50,6 @@
      <Compile Include="Assets\Scripts\Configs\SoundConfig.cs" />
      <Compile Include="Assets\Scripts\Features\SceneSwitcher\Models\SceneLoaderService.cs" />
      <Compile Include="Assets\Scripts\Features\SceneSwitcher\Messages\SceneSwitcherSignals.cs" />
-     <Compile Include="Assets\Scripts\Features\TokioGhoulGame.cs" />
      <Compile Include="Assets\Scripts\Features\SceneSwitcher\Data\SceneSwitcherRegistry.cs" />
      <Compile Include="Assets\Scripts\Features\SceneSwitcher\Bootstrap\SceneSwitcherInstaller.cs" />
      <Compile Include="Assets\Scripts\PeachyUtils.cs" />
@@ -85,6 +84,8 @@
      <Compile Include="Assets\Scripts\Features\UI\Menu\Messages\MenuBehaviourSignals.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IStorage.cs" />
      <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterEffectsPresenter.cs" />
+     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\GameNamePresenter.cs" />
      <None Include="Assets\Scripts\LD51Scripts.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -731,10 +732,6 @@
     <ProjectReference Include="Zenject.csproj">
       <Project>{ce8fa862-331f-78ee-68ab-931cef683ae4}</Project>
       <Name>Zenject</Name>
-    </ProjectReference>
-    <ProjectReference Include="ObjectPooler.Runtime.csproj">
-      <Project>{54687cdc-3128-a265-f9ac-b2dc1af2d124}</Project>
-      <Name>ObjectPooler.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="SerializationSaver.Runtime.csproj">
       <Project>{1044fd55-9d8d-065a-caef-ffd0c8a603f7}</Project>

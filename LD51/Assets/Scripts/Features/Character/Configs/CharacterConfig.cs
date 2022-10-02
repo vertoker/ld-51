@@ -25,6 +25,11 @@ namespace Features.Character.Configs
         [SerializeField] private float _dashSpeed;
         [SerializeField] private float _dashFOV;
 
+        [Space] 
+        [Header("Effects")] 
+        [SerializeField] private ParticleSystem _footstepParticles;
+        [SerializeField] private ParticleSystem _jumpParticles;
+
         public CharacterView CharacterPrefab => _characterPrefab;
 
         public float GravityScale => _gravityScale;
@@ -38,5 +43,8 @@ namespace Features.Character.Configs
         public float DashTime => _dashTime;
         public float DashSpeed => _dashSpeed;
         public float DashFOV => _dashFOV;
+
+        public ParticleSystem FootstepParticles => _footstepParticles;
+        public ParticleSystem JumpParticles => _jumpParticles;
     }
 }

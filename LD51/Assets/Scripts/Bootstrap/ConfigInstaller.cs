@@ -1,7 +1,5 @@
 
-
 using Features.Core.Config;
-
 ﻿using Configs;
 using Features.CameraControl.Configs;
 using Features.Character.Configs;
@@ -18,7 +16,12 @@ namespace Bootstrap
         [SerializeField] private CameraBehaviourConfig _cameraBehaviourConfig;
         [SerializeField] private CharacterConfig _characterConfig;
 
+
         [SerializeField] private LevelListConfig _levelListConfig;
+
+        [SerializeField] private SoundConfig _soundConfig;
+        [SerializeField] private InputConfig _inputConfig;
+
 
         [SerializeField] private SoundConfig _soundConfig;
         [SerializeField] private InputConfig _inputConfig;
@@ -28,7 +31,12 @@ namespace Bootstrap
             Container.BindInstance(_cameraBehaviourConfig);
             Container.BindInstance(_characterConfig);
 
+
             Container.BindInstance(_levelListConfig);
+
+            Container.BindInstance(_soundConfig);
+            Container.BindInstance(_inputConfig);
+
 
             Container.BindInstance(_soundConfig);
             Container.BindInstance(_inputConfig);

@@ -23,3 +23,7 @@ MonoBehaviour:
   _dashTime: 0.5
   _dashSpeed: 50
   _dashFOV: 90
+  _footstepParticles: {fileID: 8861188813786090635, guid: e4ee6dffe6c268e458c005909a2ea110,
+    type: 3}
+  _jumpParticles: {fileID: 6463571831140098808, guid: 07585aac1e5850a4eaba494e7b1ea842,
+    type: 3}
