@@ -44,8 +44,12 @@ namespace Features.Character.Service
         }
 
         public void TeleportCurrentTo(Vector3 position)
-        {
+        {   
+            _currentCharacter.Rigidbody.velocity = Vector3.zero;
+            _currentCharacter.Rigidbody.angularVelocity = Vector3.zero;
+
             _currentCharacter.transform.position = position;
+
         }
     }
 }

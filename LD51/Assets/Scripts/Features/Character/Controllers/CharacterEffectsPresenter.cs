@@ -38,7 +38,8 @@ namespace Features.Character.Controllers
                     var footsteps = Instantiate(_characterConfig.FootstepParticles);
                     footsteps.transform.position = _footstepsHolder.position;
 
-                    await UniTask.Delay(TimeSpan.FromSeconds(0.25f));
+                    await UniTask.Delay(TimeSpan.FromSeconds(0.25f * Time.timeScale));
+                   
                     Destroy(footsteps);
                 })
                 .AddTo(this);
@@ -49,7 +50,7 @@ namespace Features.Character.Controllers
             var jump = Instantiate(_characterConfig.JumpParticles);
             jump.transform.position = _jumpHolder.position;
             
-            await UniTask.Delay(TimeSpan.FromSeconds(0.25f));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.25f * Time.timeScale));
             Destroy(jump);
         }
     }

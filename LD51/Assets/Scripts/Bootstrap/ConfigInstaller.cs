@@ -23,9 +23,6 @@ namespace Bootstrap
         [SerializeField] private InputConfig _inputConfig;
 
 
-        [SerializeField] private SoundConfig _soundConfig;
-        [SerializeField] private InputConfig _inputConfig;
-
         public override void InstallBindings()
         {
             Container.BindInstance(_cameraBehaviourConfig);
@@ -33,10 +30,6 @@ namespace Bootstrap
 
 
             Container.BindInstance(_levelListConfig);
-
-            Container.BindInstance(_soundConfig);
-            Container.BindInstance(_inputConfig);
-
 
             Container.BindInstance(_soundConfig);
             Container.BindInstance(_inputConfig);

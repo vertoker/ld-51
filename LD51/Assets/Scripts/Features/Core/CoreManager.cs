@@ -24,8 +24,16 @@ namespace Features.Core.Mono
 
         private bool m_isGameStarted = false;
 
+        private int SceneToLoad 
+        { 
+            get 
+            {
+                return data.currentSceneIndex + data.currentLevel;
+            }
+        }
+
         
-        private Rigidbody playerPhysics;
+        
 
         //[SerializeField]
         //private Volume vol;
@@ -43,14 +51,11 @@ namespace Features.Core.Mono
 
             m_curLevelConfig = levelListConfig.levelList[0];
 
-            playerSpawner.SpawnCharacter(m_curLevelConfig.playerSpawnPosition);
+           
 
-            playerPhysics = GameObject.FindWithTag("Player").
-                GetComponent<Rigidbody>();
+           
 
-            playerPhysics.gameObject.SetActive(false);
-
-           // GameInit();
+           GameInit();
         }
 
 
@@ -93,8 +98,8 @@ namespace Features.Core.Mono
             SceneManager.LoadScene(data.currentSceneIndex + data.currentLevel, 
                 LoadSceneMode.Additive);
 
-            //playerSpawner.SpawnCharacter(m_curLevelConfig.playerSpawnPosition);
-            playerPhysics.gameObject.SetActive(true);
+            playerSpawner.SpawnCharacter(m_curLevelConfig.playerSpawnPosition);
+         
 
             StartTimer();
         }
@@ -106,7 +111,22 @@ namespace Features.Core.Mono
 
         private void RestartLevel() 
         {
+            StopTimer();
 
+            data.Init();
+
+            playerSpawner.TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
+            SceneManager.UnloadSceneAsync(SceneToLoad);
+
+            SceneManager.sceneUnloaded -= AfterSceneUnload;
+            SceneManager.sceneUnloaded += AfterSceneUnload;
+        }
+
+        private void AfterSceneUnload(Scene scene) 
+        {
+            SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Additive);
+
+            StartTimer();
         }
 
         private void StartTimer() 
@@ -123,6 +143,7 @@ namespace Features.Core.Mono
                 return;
 
             StopCoroutine(timerCoroutine);
+            timerCoroutine = null;
         }
 
         private IEnumerator DoTimer() 
@@ -144,7 +165,7 @@ namespace Features.Core.Mono
 
         private void GameOver() 
         {
-            StopTimer();
+            RestartLevel();
         }
 
         void SpawnPlayer() 

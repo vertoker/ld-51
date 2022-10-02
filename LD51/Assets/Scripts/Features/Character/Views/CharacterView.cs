@@ -24,6 +24,8 @@ namespace Features.Character.Views
 
         private CharacterModel _model;
         private CharacterConfig _characterConfig;
+
+        public Rigidbody Rigidbody => _rigidbody;
         
         [Inject]
         public void Construct(CharacterModel characterModel,
@@ -38,8 +40,9 @@ namespace Features.Character.Views
 
         private void Start()
         {
+            
             Observable
-                .EveryUpdate()
+                .EveryFixedUpdate()
                 .Subscribe(_ =>
                 {
                     var velocity = _rigidbody.velocity;
@@ -100,13 +103,14 @@ namespace Features.Character.Views
                     var forceToApply = _model.MovementDirection.Value.normalized * 
                                        _characterConfig.DashForce;
                     
-                    await UniTask.Delay(TimeSpan.FromSeconds(0.025f));
+                    await UniTask.Delay(TimeSpan.FromSeconds(0.025f * Time.timeScale));
                     await SmoothLerpSpeed(_characterConfig.DashSpeed);
                     _rigidbody.AddForce(forceToApply, ForceMode.Impulse);
                     
                     await SmoothLerpSpeed(_characterConfig.Speed);
                     
-                    await UniTask.Delay(TimeSpan.FromSeconds(_characterConfig.DashTime));
+                    await UniTask.Delay(TimeSpan.FromSeconds(
+                        _characterConfig.DashTime * Time.timeScale));
                     _rigidbody.velocity = Vector3.zero;
                     _rigidbody.useGravity = true;
                     _characterCameraPresenter.ChangeFOV(_characterConfig.StandardFOV);
