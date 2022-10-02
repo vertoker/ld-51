@@ -9,6 +9,9 @@ namespace Features.Character.Controllers
 {
     public class CharacterMovementController : IInitializable
     {
+        public bool LockMouse;
+        public bool LockMovement;
+
         private const string HorizontalMovement = "Horizontal";
         private const string DepthMovement = "Vertical";
 
@@ -39,29 +42,34 @@ namespace Features.Character.Controllers
                 .Where(_ => _characterModel != null)
                 .Subscribe(_ =>
                 {
-                    var horizontal = Input.GetAxis(HorizontalMovement);
-                    var depth = Input.GetAxis(DepthMovement);
+                    if (!LockMovement)
+                    {
+                        var horizontal = Input.GetAxis(HorizontalMovement);
+                        var depth = Input.GetAxis(DepthMovement);
+                    
+                        if (Input.GetKeyDown(_inputConfig.JumpButton))
+                            MessageBroker.Default.Publish(new CharacterModel.Jump());
+                    
+                        if (Input.GetKeyDown(_inputConfig.DashButton))
+                            MessageBroker.Default.Publish(new CharacterModel.Dash());
 
+                        if (Input.GetKeyDown(_inputConfig.MenuButton))
+                            Cursor.lockState = CursorLockMode.None;
+                    
+                        if (Input.GetKeyDown(_inputConfig.TimeStopButton))
+                            MessageBroker.Default.Publish(new CharacterModel.TimeManageSwitch());
+
+                        _characterModel.MovementDirection.Value = 
+                            new Vector3(horizontal, 0, depth);
+                    }
+                    
+                    if (LockMouse) return;
                     _look.x = Input.GetAxis(HorizontalLook) * _inputConfig.MouseSensitivityX * 
-                        Time.unscaledDeltaTime;
+                              Time.unscaledDeltaTime;
                     _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook) * _inputConfig.MouseSensitivityY * 
                         Time.unscaledDeltaTime,
                         _inputConfig.MouseLock.x, _inputConfig.MouseLock.y);
                     
-                    if (Input.GetKeyDown(_inputConfig.JumpButton))
-                        MessageBroker.Default.Publish(new CharacterModel.Jump());
-                    
-                    if (Input.GetKeyDown(_inputConfig.DashButton))
-                        MessageBroker.Default.Publish(new CharacterModel.Dash());
-
-                    if (Input.GetKeyDown(_inputConfig.MenuButton))
-                        Cursor.lockState = CursorLockMode.None;
-                    
-                    if (Input.GetKeyDown(_inputConfig.TimeStopButton))
-                        MessageBroker.Default.Publish(new CharacterModel.TimeManageSwitch());
-
-                    _characterModel.MovementDirection.Value = 
-                        new Vector3(horizontal, 0, depth);
                     _characterModel.LookDirection.Value = 
                         new Vector3(_look.y, _look.x, 0);
                 })
@@ -72,5 +80,6 @@ namespace Features.Character.Controllers
         {
             _characterModel = model;
         }
+
     }
 }
