@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx", "UniRx.csproj", "{82B714DE-B690-AB68-D46C-9466168FAF42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LD51Scripts", "LD51Scripts.csproj", "{99D5F19A-A056-A967-8F3B-630E85C6D2CF}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-IntegrationTests", "Zenject-IntegrationTests.csproj", "{11985E92-B63E-3307-7465-16B261F5D722}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-IntegrationTests-Editor", "Zenject-IntegrationTests-Editor.csproj", "{D17CBC89-A8C7-4548-0DD5-0A8F91C94DAF}"
@@ -18,8 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSerialized", "CustomSerialized.csproj", "{614F31F1-52D2-6C1E-B8C6-19286165FB7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-TestFramework", "Zenject-TestFramework.csproj", "{B679DD3D-5B12-852D-24E2-C2D1CC6DA9DF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LD51Scripts", "LD51Scripts.csproj", "{99D5F19A-A056-A967-8F3B-630E85C6D2CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationSaver.Runtime", "SerializationSaver.Runtime.csproj", "{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}"
 EndProject
@@ -63,6 +63,10 @@ Global
 		{82B714DE-B690-AB68-D46C-9466168FAF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82B714DE-B690-AB68-D46C-9466168FAF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82B714DE-B690-AB68-D46C-9466168FAF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11985E92-B63E-3307-7465-16B261F5D722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11985E92-B63E-3307-7465-16B261F5D722}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11985E92-B63E-3307-7465-16B261F5D722}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,10 +91,6 @@ Global
 		{B679DD3D-5B12-852D-24E2-C2D1CC6DA9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B679DD3D-5B12-852D-24E2-C2D1CC6DA9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B679DD3D-5B12-852D-24E2-C2D1CC6DA9DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99D5F19A-A056-A967-8F3B-630E85C6D2CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55FD4410-8D9D-5A06-CAEF-FFD0C8A603F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
