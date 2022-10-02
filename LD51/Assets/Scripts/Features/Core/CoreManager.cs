@@ -22,15 +22,20 @@ namespace Features.Core.Mono
 
         private Coroutine timerCoroutine;
 
-        private bool m_isGameStarted = false;
+        //private bool m_isGameStarted = false;
+        private int m_levelListCount;
+        private int m_sceneToLoad;
 
-        private int SceneToLoad 
-        { 
-            get 
-            {
-                return data.currentSceneIndex + data.currentLevel;
-            }
-        }
+        private bool m_isLoading = false;
+        private bool m_isRestarting = false;
+
+        //private int SceneToLoad 
+        //{ 
+        //    get 
+        //    {
+               
+        //    }
+        //}
 
         
         
@@ -50,6 +55,7 @@ namespace Features.Core.Mono
             levelList = levelListConfig;
 
             m_curLevelConfig = levelListConfig.levelList[0];
+            m_levelListCount = levelListConfig.levelList.Count;
 
            
 
@@ -74,27 +80,30 @@ namespace Features.Core.Mono
         private void OnEnable()
         {
             events.OnTimersUp += GameOver;
+            events.OnLevelComplete += LoadNextLevel;
         }
 
         private void OnDisable()
         {
             events.OnTimersUp -= GameOver;
+            events.OnLevelComplete -= LoadNextLevel;
         }
 
         // Update is called once per frame
         void Update()
         {
 
-            if (!m_isGameStarted && Input.GetKeyDown(KeyCode.M))
-            {
-                m_isGameStarted = true;
-                GameInit();
-            }
+            //if (!m_isGameStarted && Input.GetKeyDown(KeyCode.M))
+            //{
+            //    m_isGameStarted = true;
+            //    GameInit();
+            //}
 
         }
 
         private void GameInit() 
         {
+            UpdateSceneToLoad();
             SceneManager.LoadScene(data.currentSceneIndex + data.currentLevel, 
                 LoadSceneMode.Additive);
 
@@ -106,17 +115,47 @@ namespace Features.Core.Mono
 
         private void LoadNextLevel() 
         {
+            if (m_isLoading)
+                return;
+            m_isLoading = true;
 
+            playerSpawner.DeactivateCharacter();
+            StopTimer();
+            ++data.currentLevel;
+            m_curLevelConfig = levelList.levelList[data.currentLevel];
+            data.Init();
+
+            bool isLevel = UpdateSceneToLoad();
+            if (isLevel)
+            {
+                playerSpawner.
+                    TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
+                SceneManager.UnloadSceneAsync(m_sceneToLoad);
+
+                SceneManager.sceneUnloaded -= AfterSceneUnload;
+                SceneManager.sceneUnloaded += AfterSceneUnload;
+            }
+            else 
+            {
+                SceneManager.LoadScene(m_sceneToLoad, LoadSceneMode.Single);
+            }
         }
 
         private void RestartLevel() 
         {
+            if (m_isRestarting)
+                return;
+
+            m_isRestarting = true;
+
+            playerSpawner.DeactivateCharacter();
+
             StopTimer();
 
             data.Init();
 
             playerSpawner.TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
-            SceneManager.UnloadSceneAsync(SceneToLoad);
+            SceneManager.UnloadSceneAsync(m_sceneToLoad);
 
             SceneManager.sceneUnloaded -= AfterSceneUnload;
             SceneManager.sceneUnloaded += AfterSceneUnload;
@@ -124,9 +163,14 @@ namespace Features.Core.Mono
 
         private void AfterSceneUnload(Scene scene) 
         {
-            SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Additive);
+            SceneManager.LoadScene(m_sceneToLoad, LoadSceneMode.Additive);
+
+            playerSpawner.ReactivateCharacter();
 
             StartTimer();
+
+            m_isRestarting = !m_isRestarting || false;
+            m_isLoading = !m_isLoading || false;
         }
 
         private void StartTimer() 
@@ -168,15 +212,26 @@ namespace Features.Core.Mono
             RestartLevel();
         }
 
-        void SpawnPlayer() 
-        {
+        
 
+        private bool UpdateSceneToLoad() 
+        {
+            m_sceneToLoad = data.currentSceneIndex + data.currentLevel;
+            bool isLevel = true;
+            if (data.currentLevel <= m_levelListCount)
+            {
+                return isLevel;
+            }
+
+            isLevel = false;
+            if (!(m_sceneToLoad <= SceneManager.sceneCount - 1))
+            {
+                m_sceneToLoad = data.currentSceneIndex;
+            }
+            return isLevel;
         }
 
-        //void CoolEffect() 
-        //{
-        //    dof.active = data.isSlowedDown;
-        //}
+        
     }
 
 }

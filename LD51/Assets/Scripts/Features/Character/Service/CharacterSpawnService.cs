@@ -44,12 +44,24 @@ namespace Features.Character.Service
         }
 
         public void TeleportCurrentTo(Vector3 position)
-        {   
+        {
+            _currentCharacter.gameObject.SetActive(false);
+
             _currentCharacter.Rigidbody.velocity = Vector3.zero;
             _currentCharacter.Rigidbody.angularVelocity = Vector3.zero;
 
             _currentCharacter.transform.position = position;
 
+            _currentCharacter.gameObject.SetActive(true);
+        }
+
+        public void DeactivateCharacter() 
+        {
+            _currentCharacter.gameObject.SetActive(false);
+        }
+        public void ReactivateCharacter()
+        {
+            _currentCharacter.gameObject.SetActive(true);
         }
     }
 }

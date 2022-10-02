@@ -20,7 +20,7 @@ namespace Features.Core.Mono
         private float pauseBlur;
         [SerializeField]
         private float slowMoBlur;
-
+        private bool m_isUnpausedBlurActive = false;
 
        private float m_curUnpausedBlurValue;
 
@@ -65,6 +65,7 @@ namespace Features.Core.Mono
 
         void ApplySlowDownTimeEffect(bool isSlowedDown) 
         {
+            m_isUnpausedBlurActive = isSlowedDown;
             m_curUnpausedBlurValue = slowMoBlur;
             m_dof.focalLength.value = slowMoBlur;
             m_dof.active = isSlowedDown;
@@ -76,7 +77,7 @@ namespace Features.Core.Mono
            
             m_dof.focalLength.value = (isPaused) ? pauseBlur :
                 m_curUnpausedBlurValue;
-            m_dof.active = isPaused;
+            m_dof.active = m_isUnpausedBlurActive || isPaused;
 
             
         }
