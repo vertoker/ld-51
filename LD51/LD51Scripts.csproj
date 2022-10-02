@@ -101,6 +101,8 @@
     <Compile Include="Assets\Scripts\Interfaces\IStorage.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Door.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\RocketLauncherTurrel.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Rocket.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />

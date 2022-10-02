@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfde8eb34eed77643bed0b7646579fcb, type: 3}
-  m_Name: WirePool
+  m_Name: RocketPool
   m_EditorClassIdentifier: 
-  _object: {fileID: 0}
-  _startCapacity: 0
+  _object: {fileID: 3974025917041699175, guid: e60f29fb0539dd941955ed0292550322, type: 3}
+  _startCapacity: 5
