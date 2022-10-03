@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IStorage.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Arrow.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Rotate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
