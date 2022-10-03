@@ -16,6 +16,7 @@ namespace Mechanics
     {
         [SerializeField] private bool isOn = false;
         [SerializeField] private bool isInstantly = true;
+        [SerializeField] private float duration = 0.3f;
         [SerializeField] private AudioSource _buttonSource;
 
         private AudioStateData _buttonPressData;
@@ -49,7 +50,7 @@ namespace Mechanics
             isOn = true;
             foreach (var sub in subs)
                 sub.Activate();
-            _active.DOLocalMoveY(0.11f, 0.3f);
+            _active.DOLocalMoveY(0.11f, duration);
             _buttonSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             _buttonSource.clip = _buttonPressData.GetNext();
             _buttonSource.Play();
