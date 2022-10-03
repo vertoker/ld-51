@@ -15,13 +15,13 @@ MonoBehaviour:
   _characterPrefab: {fileID: 3999668486007306815, guid: 1a9c9106d15169343ad3324b1d6a6bdc,
     type: 3}
   _standardFOV: 90
-  _gravityScale: 2
-  _speed: 19
-  _jumpForce: 55
-  _maximumVerticalVelocity: 55
-  _dashForce: 60
+  _gravityScale: 4
+  _speed: 40
+  _jumpForce: 80
+  _maximumVerticalVelocity: 80
+  _dashForce: 80
   _dashTime: 0.05
-  _dashSpeed: 30
+  _dashSpeed: 50
   _dashFOV: 95
   _footstepParticles: {fileID: 8861188813786090635, guid: e4ee6dffe6c268e458c005909a2ea110,
     type: 3}
