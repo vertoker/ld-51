@@ -892,6 +892,10 @@
       <Project>{62A88FCE-1F33-EE78-68AB-931CEF683AE4}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
+    <ProjectReference Include="Pooler.Editor.csproj">
+      <Project>{DD886521-37F5-1731-B908-BE623E619999}</Project>
+      <Name>Pooler.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Extenject-Addressable-Tests.csproj">
       <Project>{0B32D449-55ED-31FF-ABA1-0DC5BC826B0B}</Project>
       <Name>Extenject-Addressable-Tests</Name>
