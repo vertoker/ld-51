@@ -8,8 +8,9 @@ using Zenject;
 
 namespace Features.Character.Controllers
 {
-    public class CharacterMovementController : IInitializable
+    public class CharacterMovementController : IInitializable, IDisposable
     {
+        public static CharacterMovementController Instance;
         public bool LockMouse;
         public bool LockMovement;
 
@@ -29,9 +30,11 @@ namespace Features.Character.Controllers
         
         private CharacterMovementController(InputConfig inputConfig)
         {
+            
             _inputConfig = inputConfig;
             
             _compositeDisposable = new CompositeDisposable();
+            Instance = this;
         }
         
         public void Initialize()
@@ -89,5 +92,10 @@ namespace Features.Character.Controllers
             _characterModel = model;
         }
 
+        public void Dispose()
+        {
+            if (Instance == this)
+                Instance = null;
+        }
     }
 }

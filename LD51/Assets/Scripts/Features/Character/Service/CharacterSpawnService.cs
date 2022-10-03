@@ -43,6 +43,8 @@ namespace Features.Character.Service
             _currentCharacter.transform.position = position;
             
             _characterMovementController.SetCharacter(characterModel);
+
+            
         }
 
         public void TeleportCurrentTo(Vector3 position)

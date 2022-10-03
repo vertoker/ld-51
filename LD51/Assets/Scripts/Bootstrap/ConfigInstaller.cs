@@ -13,6 +13,7 @@ namespace Bootstrap
         fileName = "ConfigInstaller")]
     public class ConfigInstaller : ScriptableObjectInstaller
     {
+        [SerializeField] private CoreConfig _coreConfig;
         [SerializeField] private CameraBehaviourConfig _cameraBehaviourConfig;
         [SerializeField] private CharacterConfig _characterConfig;
 
@@ -25,6 +26,8 @@ namespace Bootstrap
 
         public override void InstallBindings()
         {
+            Container.BindInstance(_coreConfig);
+
             Container.BindInstance(_cameraBehaviourConfig);
             Container.BindInstance(_characterConfig);
 

@@ -15,6 +15,7 @@ namespace Mechanics
         public override void Activate()
         {
             events.OnLevelComplete?.Invoke();
+            Debug.Log("<color=\"green\">лнкндеж!</color>");
         }
     }
 }

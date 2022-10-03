@@ -5,13 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/DevTest/LevelSwitchTest/CoreTestSwitch.unity
-    guid: b47d059d6f266414ca300009fb6c0fd6
-  - enabled: 0
-    path: Assets/Scenes/DevTest/LevelSwitchTest/TestLevel1.unity
-    guid: 29411214ef12a744e94ae454cf60d512
   - enabled: 1
+    path: Assets/Scenes/Test/LevelTestScene.unity
+    guid: a6751f2d82171e042b90f284cff12490
+  - enabled: 0
     path: Assets/Scenes/Game/CoreScene.unity
     guid: 985f5af0b76f4ac4f9acf0c2263371f4
   - enabled: 1

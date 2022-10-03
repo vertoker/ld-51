@@ -15,17 +15,17 @@ namespace Features.Core.Mono
         private CoreEvents coreEvents;
         private CoreData coreData;
         private InputConfig inputConfig;
-        private CharacterMovementController characterController;
+        //private CharacterMovementController characterController;
 
         [Inject]
         private void Init(CoreData coreData, CoreEvents coreEvents, 
-            InputConfig inputConfig, 
-            CharacterMovementController characterMovementController)
+            InputConfig inputConfig/*, 
+            CharacterMovementController characterMovementController*/)
         {
             this.coreData = coreData;
             this.coreEvents = coreEvents;
             this.inputConfig = inputConfig;
-            characterController = characterMovementController;
+            //characterController = characterMovementController;
         }
 
         private void OnEnable()
@@ -69,7 +69,8 @@ namespace Features.Core.Mono
 
         private void LockMouseLook(bool isPaused) 
         {
-            characterController.LockMouse = isPaused;
+            if (CharacterMovementController.Instance != null)
+                CharacterMovementController.Instance.LockMouse = isPaused;
         }
 
     }
