@@ -64,6 +64,7 @@ namespace Features.UI.Menu.Models
                 }
                 case MenuAction.Exit:
                 {
+                    Application.Quit();
                     break;
                 }
             }

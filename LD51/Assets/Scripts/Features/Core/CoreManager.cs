@@ -194,6 +194,8 @@ namespace Features.Core.Mono
 
         private void ReturnToMainMenu() 
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene(data.MainMenuScene, LoadSceneMode.Single);
         }
 
