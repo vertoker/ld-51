@@ -51,7 +51,7 @@ namespace Mechanics
             foreach (var sub in subs)
                 sub.Activate();
             _active.DOLocalMoveY(0.11f, duration);
-            _buttonSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+           // _buttonSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             _buttonSource.clip = _buttonPressData.GetRandom();
             _buttonSource.Play();
         }
@@ -64,7 +64,7 @@ namespace Mechanics
                 sub.Deactivate();
             _active.DOLocalMoveY(0.3f, 0.3f);
             
-            _buttonSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+           // _buttonSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             _buttonSource.clip = _buttonUnpressData.GetRandom();
             _buttonSource.Play();
         }

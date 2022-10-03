@@ -44,9 +44,9 @@ namespace Features.Character.Controllers
                 ? PlayerPrefs.GetFloat(GlobalConst.MouseSensitivityPref)
                 : 10f;
                 
-#if UNITY_EDITOR
-            mouseSense = _inputConfig.MouseSensitivityX;
-#endif
+//#if UNITY_EDITOR
+//            mouseSense = _inputConfig.MouseSensitivityX;
+//#endif
             
             Observable
                 .EveryUpdate()

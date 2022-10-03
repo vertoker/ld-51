@@ -49,7 +49,7 @@ namespace Features.Character.Controllers
                         freeSource = _rightFootSource;
                     else if (_leftFootSource.isPlaying && _rightFootSource.isPlaying) return;
 
-                    freeSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+                    //freeSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
                     freeSource.clip = _footsteps.GetNext();
                     freeSource.pitch = _characterModel.Speed > 10f 
                         ? _characterModel.Speed / 10f
@@ -62,14 +62,14 @@ namespace Features.Character.Controllers
 
         public void PlayDash()
         {
-            _dashSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+            //_dashSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             _dashSource.clip = _dash.GetRandom();
             _dashSource.Play();
         }
 
         public void PlayJump()
         {
-            _jumpSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+            //_jumpSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             _jumpSource.clip = _jump.GetRandom();
             _jumpSource.Play();
         }
