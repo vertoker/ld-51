@@ -85,7 +85,7 @@ namespace Mechanics
             rocket.GetComponent<Rocket>().SetTarget(target, ExplosionRocket);
             rocket.gameObject.SetActive(true);
 
-            _turretSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+           // _turretSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             _turretSource.clip = _turretClipData.GetRandom();
             _turretSource.Play();
             
@@ -98,7 +98,7 @@ namespace Mechanics
             var effect = explosionSpawner.Dequeue();
             var effectSource = effect.GetComponent<AudioSource>();
             
-            effectSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+            //effectSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             effectSource.clip = _rocketClipData.GetRandom();
             effectSource.Play();
             

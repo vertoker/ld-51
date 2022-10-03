@@ -10,19 +10,37 @@ namespace Features.UI.Menu.Views
         [SerializeField] private Slider _mouseSensitivity;
         [SerializeField] private Slider _soundVolume;
 
-        [SerializeField] private float _standardSensitivity;
-        [SerializeField] private float _standardVolume;
+        //[SerializeField] private float _standardSensitivity;
+        //[SerializeField] private float _standardVolume;
         
         private void Start()
         {
-            _mouseSensitivity.value = PlayerPrefs.HasKey(GlobalConst.MouseSensitivityPref)
-                ? PlayerPrefs.GetFloat(GlobalConst.MouseSensitivityPref)
-                : _standardSensitivity;
-            
-            _soundVolume.value = PlayerPrefs.HasKey(GlobalConst.AudioVolumePref)
-                ? PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref)
-                : _standardVolume;
+            InitRange();
+            InitValues();
 
+            SubscribeToChanges();
+        }
+
+        private void InitRange() 
+        {
+            _mouseSensitivity.minValue = 1;
+            _mouseSensitivity.maxValue = GlobalConst.MaxMouseSensitivity;
+
+            _soundVolume.minValue = 0;
+            _soundVolume.maxValue = 1;
+        }
+
+        private void InitValues() 
+        {
+            _mouseSensitivity.value = PlayerPrefs.HasKey(GlobalConst.MouseSensitivityPref)
+               ? PlayerPrefs.GetFloat(GlobalConst.MouseSensitivityPref)
+               : GlobalConst.StandardSensitivity;
+
+            _soundVolume.value = AudioListener.volume;
+        }
+
+        private void SubscribeToChanges() 
+        {
             _mouseSensitivity
                 .OnValueChangedAsObservable()
                 .Subscribe(value =>
@@ -36,6 +54,7 @@ namespace Features.UI.Menu.Views
                 .Subscribe(value =>
                 {
                     PlayerPrefs.SetFloat(GlobalConst.AudioVolumePref, value);
+                    AudioListener.volume = value;
                 })
                 .AddTo(this);
         }
