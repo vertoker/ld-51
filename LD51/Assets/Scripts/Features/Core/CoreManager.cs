@@ -17,8 +17,6 @@ namespace Features.Core.Mono
         //private CharacterSpawnService playerSpawner;
         private LevelListConfig levelList;
 
-        private LevelConfig m_curLevelConfig;
-
         private Coroutine timerCoroutine;
 
         //private bool m_isGameStarted = false;
@@ -56,8 +54,7 @@ namespace Features.Core.Mono
             //playerSpawner = characterSpawnService;
             levelList = levelListConfig;
 
-            m_curLevelConfig = levelListConfig.levelList[0];
-            m_levelListCount = levelListConfig.levelList.Count;
+            m_levelListCount = levelListConfig.LevelCount;
 
            
 
@@ -136,10 +133,6 @@ namespace Features.Core.Mono
             StopTimer();
 
             ++data.currentLevel;
-            if (data.currentLevel <= m_levelListCount)
-            {
-                m_curLevelConfig = levelList.levelList[data.currentLevel - 1];   
-            }
             data.Init();
 
             bool isLevel = UpdateSceneToLoad();

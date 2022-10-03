@@ -9,8 +9,8 @@ namespace Features.Core.Config
     menuName = "Config/LevelListConfig", order = 0)]
     public class LevelListConfig : ScriptableObject
     {
-        [SerializeField]
-        public List<LevelConfig> levelList;
+        [SerializeField] private int levelCount = 11;
+        public int LevelCount => levelCount;
     }
 }
 

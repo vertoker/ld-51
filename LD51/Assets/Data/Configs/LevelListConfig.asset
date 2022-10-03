@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9315c91abbc774a8038c8f8b6abb86, type: 3}
   m_Name: LevelListConfig
   m_EditorClassIdentifier: 
-  levelList:
-  - {fileID: 11400000, guid: eb1b48f481b00dc45a2ffd3fe2bbc4c6, type: 2}
-  - {fileID: 11400000, guid: eb1b48f481b00dc45a2ffd3fe2bbc4c6, type: 2}
+  levelCount: 10
