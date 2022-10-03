@@ -9,9 +9,9 @@ namespace Mechanics
     public class DeathTrigger : MonoBehaviour
     {
         [Inject]
-        private CoreEvents events; 
+        private CoreEvents events;
 
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {

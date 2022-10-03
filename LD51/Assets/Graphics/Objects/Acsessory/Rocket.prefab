@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3974025917041699174}
   - component: {fileID: 5763503037164078253}
   - component: {fileID: 7576781067680544391}
-  - component: {fileID: 8797948366067967359}
+  - component: {fileID: 1880509384887049781}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -132,7 +132,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8797948366067967359
+--- !u!114 &1880509384887049781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
