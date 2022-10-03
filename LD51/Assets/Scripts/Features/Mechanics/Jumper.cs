@@ -27,7 +27,7 @@ namespace Mechanics
             {
                 rb.velocity = transform.up * powerBoost;
                 _jumperSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
-                _jumperSource.clip = _jumperClipData.GetNext();
+                _jumperSource.clip = _jumperClipData.GetRandom();
                 _jumperSource.Play();
             }
         }

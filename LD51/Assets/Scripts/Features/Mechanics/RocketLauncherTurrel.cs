@@ -6,6 +6,8 @@ using UnityEngine;
 using Game.Pool;
 using UnityEngine.UIElements;
 using DG.Tweening;
+using Features.Character.Service;
+using UniRx;
 using Zenject;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -24,22 +26,27 @@ namespace Mechanics
         [SerializeField] private PoolSpawner explosionSpawner;
         [SerializeField] private Transform target;
         [SerializeField] private AudioSource _turretSource;
-
+        
         private AudioStateData _turretClipData;
+        private AudioStateData _rocketClipData;
         
         [Inject]
         public void Construct(SoundConfig soundConfig)
         {
             _turretClipData = new AudioStateData(soundConfig.GetSoundsByType(SoundType.RocketThrow));
-        }
-        
-        public void SetTarget(Transform target)
-        {
-
+            _rocketClipData = new AudioStateData(soundConfig.GetSoundsByType(SoundType.Explosion));
         }
 
         private void Start()
         {
+            MessageBroker
+                .Default
+                .Receive<CharacterSpawnService.CharacterSpawned>()
+                .Subscribe(message =>
+                {
+                    target = message.CharacterTransform;
+                });
+            
             StartCoroutine(AutoShot());
         }
         
@@ -79,7 +86,7 @@ namespace Mechanics
             rocket.gameObject.SetActive(true);
 
             _turretSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
-            _turretSource.clip = _turretClipData.GetNext();
+            _turretSource.clip = _turretClipData.GetRandom();
             _turretSource.Play();
             
             StartCoroutine(rocket.GetComponent<Rocket>().DelayActivate());
@@ -89,6 +96,12 @@ namespace Mechanics
         {
             rocketSpawner.Enqueue(rocket);
             var effect = explosionSpawner.Dequeue();
+            var effectSource = effect.GetComponent<AudioSource>();
+            
+            effectSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+            effectSource.clip = _rocketClipData.GetRandom();
+            effectSource.Play();
+            
             effect.transform.position = position;
             effect.GetComponent<ParticleSystem>().Play();
             StartCoroutine(DelayOffExplosion(effect));

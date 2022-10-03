@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Data
@@ -15,6 +16,8 @@ namespace Data
 
         public AudioClip GetNext()
         {
+            if (_clips == null) return null;
+            
             var result = _clips[_currentClip];
             _currentClip = _currentClip + 1 < _clips.Count 
                 ? _currentClip + 1
@@ -22,5 +25,11 @@ namespace Data
             
             return result;
         }
+
+        public AudioClip GetRandom()
+        {
+            return _clips?.ElementAt(Random.Range(0, _clips.Count));
+        }
+        
     }
 }
