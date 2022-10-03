@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\Features\Mechanics\Rotate.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\FollowTarget.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Configs\CharacterConfig.cs" />
+    <Compile Include="Assets\Scripts\Features\Character\Data\CharacterAnimationConst.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Models\CharacterModel.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IIdentifier.cs" />
     <Compile Include="Assets\Scripts\Bootstrap\MenuInstaller.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Assets\Scripts\Features\Mechanics\ButtonActivate.cs" />
     <Compile Include="Assets\Scripts\Bootstrap\LevelInstaller.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\ShuttersMenuBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\EnableRigidbodyObject.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Button.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterEffectsPresenter.cs" />
     <Compile Include="Assets\Scripts\Data\GlobalConst.cs" />

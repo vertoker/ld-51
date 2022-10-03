@@ -41,7 +41,7 @@ namespace Features.Character.Service
             _characterConfig = characterConfig;
         }
         
-        public void SpawnCharacter(Vector3 position)
+        public void SpawnCharacter(Vector3 position, Vector2 look)
         {
             var data = new CharacterData
             {
@@ -52,8 +52,9 @@ namespace Features.Character.Service
 
             var characterModel = _characterModelFactory.Create(data);
             _currentCharacter = _characterViewFactory.Create(characterModel);
+
             _currentCharacter.transform.position = position;
-            
+
             _characterMovementController.SetCharacter(characterModel);
 
             MessageBroker.Default.Publish(new CharacterSpawned(_currentCharacter.transform));

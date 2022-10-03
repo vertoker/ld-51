@@ -4486,7 +4486,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Implemented obstacle logic, beatiful effects and awesome gamedesign
+  m_text: Implemented obstacle logic, beatiful effects and <color=orange>awesome</color>
+    gamedesign
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a33cec4f2507f594bb8d5064d49b56b5, type: 2}
   m_sharedMaterial: {fileID: -464468427198408476, guid: a33cec4f2507f594bb8d5064d49b56b5,
