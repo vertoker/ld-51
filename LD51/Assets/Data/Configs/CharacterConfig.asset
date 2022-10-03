@@ -16,12 +16,12 @@ MonoBehaviour:
     type: 3}
   _standardFOV: 90
   _gravityScale: 4
-  _speed: 35
+  _speed: 40
   _jumpForce: 80
   _maximumVerticalVelocity: 80
-  _dashForce: 60
+  _dashForce: 80
   _dashTime: 0.05
-  _dashSpeed: 30
+  _dashSpeed: 50
   _dashFOV: 95
   _footstepParticles: {fileID: 8861188813786090635, guid: e4ee6dffe6c268e458c005909a2ea110,
     type: 3}

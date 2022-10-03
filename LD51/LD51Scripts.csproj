@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Placeholder\PlaceholderSpawner.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Models\MenuManagerService.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Arrow.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\RocketLauncherTurrel.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Data\CharacterData.cs" />
     <Compile Include="Assets\Scripts\Configs\SoundConfig.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\Scripts\Data\SoundData.cs" />
     <Compile Include="Assets\Scripts\Features\CameraControl\Views\ActionCameraView.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Models\MenuBehaviourCatchService.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Rotate.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\FollowTarget.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Configs\CharacterConfig.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Models\CharacterModel.cs" />
@@ -117,8 +119,6 @@
     <Compile Include="Assets\Scripts\Features\UI\Menu\Messages\MenuBehaviourSignals.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IStorage.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\Arrow.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\Rotate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
