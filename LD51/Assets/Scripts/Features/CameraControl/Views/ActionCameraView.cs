@@ -89,8 +89,9 @@ namespace Features.CameraControl.Views
         private async Task TranslateToMenuOption(Transform presenter)
         {
             var accuracy = 0.999999f;
-            while (transform.position != presenter.position && Mathf.Abs(Quaternion.Dot(transform.rotation,presenter.rotation)) < accuracy
-                                                            && presenter == _cameraTarget && transform)
+            while (transform && transform.position != presenter.position && 
+                   Mathf.Abs(Quaternion.Dot(transform.rotation,presenter.rotation)) < accuracy &&
+                   presenter == _cameraTarget && transform)
             {
                 transform.position = Vector3.Lerp(transform.position, presenter.position, _behaviourConfig.CameraTranslateSpeed * Time.deltaTime);
                 transform.rotation = Quaternion.Lerp(transform.rotation, presenter.rotation, _behaviourConfig.CameraRotateSpeed * Time.deltaTime);

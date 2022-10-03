@@ -26,6 +26,8 @@ namespace Features.Character.Views
         private CharacterModel _model;
         private CharacterConfig _characterConfig;
         
+        
+
         [Inject]
         public void Construct(CharacterModel characterModel,
             CharacterConfig characterConfig, CharacterMovementController characterMovementPresenter)
@@ -41,7 +43,7 @@ namespace Features.Character.Views
         private void Start()
         {
             Observable
-                .EveryUpdate()
+                .EveryFixedUpdate()
                 .Subscribe(_ =>
                 {
                     var velocity = _rigidbody.velocity;
@@ -158,6 +160,12 @@ namespace Features.Character.Views
                 time += Time.unscaledDeltaTime * boost;
                 await UniTask.Yield();
             }
+        }
+
+        public void ResetVelocity() 
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;
         }
     }
 }

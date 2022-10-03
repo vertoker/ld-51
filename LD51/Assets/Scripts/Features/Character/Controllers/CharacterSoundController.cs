@@ -36,6 +36,7 @@ namespace Features.Character.Controllers
         private void Start()
         {
             var freeSource = _rightFootSource;
+            
             Observable
                 .EveryUpdate()
                 .Where(_ => _characterModel.IsMoving.Value &&
@@ -47,7 +48,8 @@ namespace Features.Character.Controllers
                     else if (_leftFootSource.isPlaying && !_rightFootSource.isPlaying)
                         freeSource = _rightFootSource;
                     else if (_leftFootSource.isPlaying && _rightFootSource.isPlaying) return;
-                    
+
+                    freeSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
                     freeSource.clip = _footsteps.GetNext();
                     freeSource.pitch = _characterModel.Speed > 10f 
                         ? _characterModel.Speed / 10f
@@ -60,12 +62,14 @@ namespace Features.Character.Controllers
 
         public void PlayDash()
         {
+            _dashSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             _dashSource.clip = _dash.GetNext();
             _dashSource.Play();
         }
 
         public void PlayJump()
         {
+            _jumpSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
             _jumpSource.clip = _jump.GetNext();
             _jumpSource.Play();
         }

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Configs;
+using Data;
 using UnityEngine;
 using Game.Pool;
 using UnityEngine.UIElements;
 using DG.Tweening;
-
+using Zenject;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -21,7 +23,16 @@ namespace Mechanics
         [SerializeField] private PoolSpawner rocketSpawner;
         [SerializeField] private PoolSpawner explosionSpawner;
         [SerializeField] private Transform target;
+        [SerializeField] private AudioSource _turretSource;
 
+        private AudioStateData _turretClipData;
+        
+        [Inject]
+        public void Construct(SoundConfig soundConfig)
+        {
+            _turretClipData = new AudioStateData(soundConfig.GetSoundsByType(SoundType.RocketThrow));
+        }
+        
         public void SetTarget(Transform target)
         {
 
@@ -31,6 +42,7 @@ namespace Mechanics
         {
             StartCoroutine(AutoShot());
         }
+        
         private IEnumerator AutoShot()
         {
             yield return new WaitForSeconds(delayShot);
@@ -65,6 +77,11 @@ namespace Mechanics
             rocket.eulerAngles = new Vector3(0f, angleY, angleZ);
             rocket.GetComponent<Rocket>().SetTarget(target, ExplosionRocket);
             rocket.gameObject.SetActive(true);
+
+            _turretSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+            _turretSource.clip = _turretClipData.GetNext();
+            _turretSource.Play();
+            
             StartCoroutine(rocket.GetComponent<Rocket>().DelayActivate());
         }
 
@@ -90,7 +107,7 @@ namespace Mechanics
             {
                 RocketLauncherTurrel turrel = (RocketLauncherTurrel)target;
 
-                if (GUILayout.Button("Выстрелить (только в игре)"))
+                if (GUILayout.Button("Г‚Г»Г±ГІГ°ГҐГ«ГЁГІГј (ГІГ®Г«ГјГЄГ® Гў ГЁГЈГ°ГҐ)"))
                 {
                     turrel.Shoot();
                 }
