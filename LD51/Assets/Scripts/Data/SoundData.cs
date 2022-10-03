@@ -13,6 +13,14 @@ namespace Data
         Fall,
         TimeStop,
         TimeContinue,
+        ButtonPress,
+        ButtonUnpress,
+        DoorOpen,
+        DoorClose,
+        RocketThrow,
+        Explosion,
+        JumpBoost,
+        Finish
     }
     
     [Serializable]
