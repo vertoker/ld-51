@@ -17,8 +17,8 @@ MonoBehaviour:
   _standardFOV: 90
   _gravityScale: 4
   _speed: 40
-  _jumpForce: 80
-  _maximumVerticalVelocity: 80
+  _jumpForce: 30
+  _maximumVerticalVelocity: 30
   _dashForce: 80
   _dashTime: 0.05
   _dashSpeed: 50

@@ -15,7 +15,7 @@ namespace Mechanics
         }
         private void FixedUpdate()
         {
-            self.Rotate(speed);
+            self.Rotate(speed * Time.timeScale);
         }
     }
 }

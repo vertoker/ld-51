@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Configs\InputConfig.cs" />
     <Compile Include="Assets\Scripts\Features\Core\Configs\LevelConfig.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Bootstrap\MenuBehaviourInstaller.cs" />
+    <Compile Include="Assets\Scripts\Features\UI\Pause\PauseSettingsWindow.cs" />
     <Compile Include="Assets\Scripts\Models\StorageBase.cs" />
     <Compile Include="Assets\Scripts\Bootstrap\RegistryInstaller.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Views\CharacterCameraPresenter.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\CubeMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\Features\Core\CoreInputController.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\DeathTrigger.cs" />
+    <Compile Include="Assets\Scripts\Features\UI\Pause\PauseMainWindow.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\GameNamePresenter.cs" />
     <Compile Include="Assets\Scripts\Features\Core\CoreData.cs" />
     <Compile Include="Assets\Scripts\Features\Core\Configs\CoreConfig.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Assets\Scripts\Features\Mechanics\Rocket.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Wire.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Borders.cs" />
+    <Compile Include="Assets\Scripts\Features\UI\Pause\PauseSystemGeneral.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Installers\CharacterInstaller.cs" />
     <Compile Include="Assets\Scripts\Data\SoundData.cs" />
     <Compile Include="Assets\Scripts\Features\Core\CoreEvents.cs" />

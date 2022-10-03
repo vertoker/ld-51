@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CoreConfig
   m_EditorClassIdentifier: 
   startTime: 10
-  slowedTimeScale: 0.15
+  slowedTimeScale: 0.25
   timerMultiplier: 4
   mainMenuSceneName: MenuTest

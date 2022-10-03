@@ -22,17 +22,17 @@ namespace Mechanics
 
         private void FixedUpdate()
         {
-            self.Rotate(rotateSpeed, Space.Self);
+            self.Rotate(rotateSpeed * Time.timeScale, Space.Self);
 
             if (moveUp)
             {
-                self.position = Vector3.Lerp(self.position, originPosition + swayingCoord, swayingTime);
+                self.position = Vector3.Lerp(self.position, originPosition + swayingCoord, swayingTime * Time.timeScale);
                 if (Vector3.Distance(self.position, originPosition + swayingCoord) < 0.1f)
                     moveUp = false;
             }
             else
             {
-                self.position = Vector3.Lerp(self.position, originPosition - swayingCoord, swayingTime);
+                self.position = Vector3.Lerp(self.position, originPosition - swayingCoord, swayingTime * Time.timeScale);
                 if (Vector3.Distance(self.position, originPosition - swayingCoord) < 0.1f)
                     moveUp = true;
             }
