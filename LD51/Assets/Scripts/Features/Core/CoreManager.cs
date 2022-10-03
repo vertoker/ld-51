@@ -15,7 +15,7 @@ namespace Features.Core.Mono
     {
         private CoreData data;
         private CoreEvents events;
-        private CharacterSpawnService playerSpawner;
+        //private CharacterSpawnService playerSpawner;
         private LevelListConfig levelList;
 
         private LevelConfig m_curLevelConfig;
@@ -46,12 +46,12 @@ namespace Features.Core.Mono
 
         [Inject]
         void Initialize(CoreData coreData, CoreEvents coreEvents,
-            CharacterSpawnService characterSpawnService, 
+            /*CharacterSpawnService characterSpawnService,*/ 
             LevelListConfig levelListConfig)
         {
             data = coreData;
             events = coreEvents;
-            playerSpawner = characterSpawnService;
+            //playerSpawner = characterSpawnService;
             levelList = levelListConfig;
 
             m_curLevelConfig = levelListConfig.levelList[0];
@@ -104,10 +104,12 @@ namespace Features.Core.Mono
         private void GameInit() 
         {
             UpdateSceneToLoad();
-            SceneManager.LoadScene(data.currentSceneIndex + data.currentLevel, 
+            SceneManager.LoadScene(m_sceneToLoad, 
                 LoadSceneMode.Additive);
-
-            playerSpawner.SpawnCharacter(m_curLevelConfig.playerSpawnPosition);
+            //SceneManager.MoveGameObjectToScene(
+            //    playerSpawner.CharacterView.gameObject, 
+            //    SceneManager.GetSceneByBuildIndex( m_sceneToLoad));
+            //playerSpawner.SpawnCharacter(m_curLevelConfig.playerSpawnPosition);
          
 
             StartTimer();
@@ -119,7 +121,7 @@ namespace Features.Core.Mono
                 return;
             m_isLoading = true;
 
-            playerSpawner.DeactivateCharacter();
+            //playerSpawner.DeactivateCharacter();
             StopTimer();
             ++data.currentLevel;
             if (data.currentLevel <= m_levelListCount)
@@ -129,8 +131,8 @@ namespace Features.Core.Mono
             bool isLevel = UpdateSceneToLoad();
             if (isLevel)
             {
-                playerSpawner.
-                    TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
+                //playerSpawner.
+                //    TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
                 SceneManager.UnloadSceneAsync(m_sceneToLoad-1);
 
                 SceneManager.sceneUnloaded -= AfterSceneUnload;
@@ -149,13 +151,13 @@ namespace Features.Core.Mono
 
             m_isRestarting = true;
 
-            playerSpawner.DeactivateCharacter();
+            //playerSpawner.DeactivateCharacter();
 
             StopTimer();
 
             data.Init();
 
-            playerSpawner.TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
+            //playerSpawner.TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
             SceneManager.UnloadSceneAsync(m_sceneToLoad);
 
             SceneManager.sceneUnloaded -= AfterSceneUnload;
@@ -165,8 +167,10 @@ namespace Features.Core.Mono
         private void AfterSceneUnload(Scene scene) 
         {
             SceneManager.LoadScene(m_sceneToLoad, LoadSceneMode.Additive);
-
-            playerSpawner.ReactivateCharacter();
+            //SceneManager.MoveGameObjectToScene(
+            //    playerSpawner.CharacterView.gameObject,
+            //    SceneManager.GetSceneByBuildIndex(m_sceneToLoad));
+            //playerSpawner.ReactivateCharacter();
 
             StartTimer();
 
@@ -196,7 +200,8 @@ namespace Features.Core.Mono
         {
             while (data.timer > 0f) 
             {
-                data.timer -= Time.deltaTime * Time.timeScale;
+                float multiplier = Time.timeScale == 1 ? 1 : data.TimerMultyplier;
+                data.timer -= Time.deltaTime * Time.timeScale * multiplier;
 
                 if (data.timer < 0f)
                     data.timer = 0f;
@@ -212,7 +217,7 @@ namespace Features.Core.Mono
         private void GameOver() 
         {
             RestartLevel();
-            Debug.Log($"Ìîðøåíøòåðí — ÏÎÑÎÑÈ {m_isRestarting}");
+           
         }
 
         

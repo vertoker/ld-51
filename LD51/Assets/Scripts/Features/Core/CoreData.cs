@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using Features.Core.Config;
 
 namespace Features.Core 
 {
     public class CoreData
     {
-        private const float c_StartTime = 10f;
-        public const float c_slowedTimeScale = 0.15f;
+        public float TimerMultyplier => m_timerMultiplier;
+        public float SlowedTimeScale => m_slowedTimeScale;
+
+        
+        private CoreConfig config;
+
+        private float m_startTime;
+        private float m_slowedTimeScale;
+        private float m_timerMultiplier;
+
 
         public int currentSceneIndex;
         public int currentLevel;
@@ -18,8 +28,15 @@ namespace Features.Core
         public bool isPaused;
         public bool isSlowedDown;
 
-        public CoreData() 
+        [Inject]
+        public CoreData(CoreConfig coreConfig) 
         {
+            config = coreConfig;
+
+            m_startTime = config.startTime;
+            m_slowedTimeScale = config.slowedTimeScale;
+            m_timerMultiplier = config.timerMultiplier;
+
             Init();
 
             currentLevel = 1;
@@ -29,7 +46,7 @@ namespace Features.Core
 
         public void Init() 
         {
-            timer = c_StartTime;
+            timer = m_startTime;
             timeScale = 1f;
             isPaused = false;
             isSlowedDown = false;

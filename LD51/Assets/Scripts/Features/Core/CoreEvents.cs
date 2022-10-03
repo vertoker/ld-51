@@ -39,7 +39,7 @@ namespace Features.Core
         {
             data.isSlowedDown = isSlowedDown;
 
-            data.timeScale = data.isSlowedDown ? CoreData.c_slowedTimeScale : 1f;
+            data.timeScale = data.isSlowedDown ? data.SlowedTimeScale : 1f;
 
             Time.timeScale = data.timeScale;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
