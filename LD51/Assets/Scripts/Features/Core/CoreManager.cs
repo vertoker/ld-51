@@ -6,8 +6,7 @@ using Zenject;
 using Features.Character.Service;
 using Features.Core.Config;
 using Features.Character.Views;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
+
 
 namespace Features.Core.Mono
 {
@@ -29,16 +28,19 @@ namespace Features.Core.Mono
         private bool m_isLoading = false;
         private bool m_isRestarting = false;
 
+        private Coroutine useStaminaCoroutine;
+        private Coroutine restoreStaminaCoroutine;
+
         //private int SceneToLoad 
         //{ 
         //    get 
         //    {
-               
+
         //    }
         //}
 
-        
-        
+
+
 
         //[SerializeField]
         //private Volume vol;
@@ -82,6 +84,7 @@ namespace Features.Core.Mono
             events.OnGameOver += GameOver;
             events.OnLevelComplete += LoadNextLevel;
             events.OnReturnToMainMenu += ReturnToMainMenu;
+            events.OnSlowdownTimePressed += ActivateSlowdown;
         }
 
         private void OnDisable()
@@ -89,12 +92,13 @@ namespace Features.Core.Mono
             events.OnGameOver -= GameOver;
             events.OnLevelComplete -= LoadNextLevel;
             events.OnReturnToMainMenu -= ReturnToMainMenu;
+            events.OnSlowdownTimePressed -= ActivateSlowdown;
         }
 
         // Update is called once per frame
         void Update()
         {
-
+            //Debug.Log($"<color=\"blue\">{data.stamina}</color>");
             //if (!m_isGameStarted && Input.GetKeyDown(KeyCode.M))
             //{
             //    m_isGameStarted = true;
@@ -257,7 +261,86 @@ namespace Features.Core.Mono
             return isLevel;
         }
 
-        
+        private void ActivateSlowdown(bool isSlowedDown) 
+        {
+            if (isSlowedDown)
+            {
+                StopRestoringStamina();
+                StartUsingStamina();
+            }
+            else 
+            {
+                StopUsingStamina();
+                StartRestoringStamina();
+            }
+        }
+
+        private IEnumerator DoUseStamina()
+        {
+            while (data.stamina > 0f)
+            {
+                float dec = (Time.timeScale > 0) ? Time.unscaledDeltaTime :0;
+
+                data.stamina -= dec;
+                yield return null;
+            }
+            
+            data.stamina = 0f;
+
+            events.InvokeSlowdown();
+
+        }
+
+        private void StartUsingStamina()
+        {
+            if (useStaminaCoroutine != null)
+                return;
+            //StopUsingStamina();
+            useStaminaCoroutine = StartCoroutine(DoUseStamina());
+        }
+
+        private void StopUsingStamina()
+        {
+            if (useStaminaCoroutine == null)
+                return;
+
+            StopCoroutine(useStaminaCoroutine);
+            useStaminaCoroutine = null;
+        }
+
+        private IEnumerator DoRestoreStamina()
+        {
+            while (data.stamina < data.MaxStamina)
+            {
+                float inc = (Time.timeScale > 0) ? Time.unscaledDeltaTime : 0;
+
+                data.stamina += inc * data.StaminaRestoringMultiplier;
+                yield return null;
+            }
+
+            data.stamina = data.MaxStamina;
+
+            // events.InvokeSlowdown();
+            StopRestoringStamina();
+        }
+
+        private void StartRestoringStamina()
+        {
+            if (restoreStaminaCoroutine != null)
+                return;
+           // StopRestoringStamina();
+            restoreStaminaCoroutine = StartCoroutine(DoRestoreStamina());
+        }
+
+        private void StopRestoringStamina()
+        {
+            if (restoreStaminaCoroutine == null)
+                return;
+
+            StopCoroutine(restoreStaminaCoroutine);
+            restoreStaminaCoroutine = null;
+        }
+
     }
 
 }

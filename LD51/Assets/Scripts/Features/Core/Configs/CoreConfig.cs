@@ -11,6 +11,8 @@ namespace Features.Core.Config
     {
         public float startTime;
         public float slowedTimeScale;
+        public float maxStamina;
+        public float staminaRestoringMultiplyer;
         public float timerMultiplier;
         public string mainMenuSceneName;
     }

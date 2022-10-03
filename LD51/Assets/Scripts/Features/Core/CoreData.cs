@@ -13,7 +13,8 @@ namespace Features.Core
         public float SlowedTimeScale => m_slowedTimeScale;
 
         public string MainMenuScene => m_mainMenuScene;
-
+        public float MaxStamina => m_maxStamina;
+        public float StaminaRestoringMultiplier => m_staminaMultiplyer;
         
         private CoreConfig config;
 
@@ -21,10 +22,14 @@ namespace Features.Core
         private float m_slowedTimeScale;
         private float m_timerMultiplier;
         private string m_mainMenuScene;
+        private float m_maxStamina;
+        private float m_staminaMultiplyer;
 
 
         public int currentSceneIndex;
         public int currentLevel;
+
+        public float stamina;
 
         public float timer;
         public float timeScale;
@@ -41,7 +46,9 @@ namespace Features.Core
             m_slowedTimeScale = config.slowedTimeScale;
             m_timerMultiplier = config.timerMultiplier;
             m_mainMenuScene = config.mainMenuSceneName;
-           
+            m_maxStamina = config.maxStamina;
+            m_staminaMultiplyer = config.staminaRestoringMultiplyer;
+
 
             Init();
 
@@ -51,6 +58,7 @@ namespace Features.Core
 
         public void Init() 
         {
+            stamina = m_maxStamina;
             timer = m_startTime;
             timeScale = 1f;
             isPaused = false;

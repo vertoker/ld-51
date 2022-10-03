@@ -8,7 +8,8 @@ namespace Features.Core
 {
     public class CoreEvents : System.IDisposable
     {
-        
+        public static CoreEvents Instance;
+
         private CoreData data;
 
        
@@ -20,10 +21,13 @@ namespace Features.Core
         public System.Action OnGameOver;
         public System.Action OnReturnToMainMenu;
 
+        
 
         [Inject]
         public CoreEvents(CoreData coreData) 
         {
+            Instance = this;
+
             data = coreData;
 
             OnSlowdownTimePressed += Slowdown;
@@ -32,6 +36,9 @@ namespace Features.Core
         }
         public void Dispose()
         {
+            if (Instance == this)
+                Instance = null;
+
             OnSlowdownTimePressed -= Slowdown;
             OnPauseButtonPressed -= Pause;
         }
@@ -46,6 +53,12 @@ namespace Features.Core
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
 
+       
+        public void InvokeSlowdown()
+        {
+            OnSlowdownTimePressed?.Invoke(!data.isSlowedDown);
+        }
+
         public void InvokePause() 
         {
             OnPauseButtonPressed?.Invoke(!data.isPaused);
@@ -57,6 +70,8 @@ namespace Features.Core
 
             Time.timeScale = data.isPaused ? 0f : data.timeScale;
         }
+
+
 
         
     }

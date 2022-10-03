@@ -15,6 +15,10 @@ namespace Features.Core.Mono
         private CoreEvents coreEvents;
         private CoreData coreData;
         private InputConfig inputConfig;
+
+       
+
+        //private int m_staminaDir = -1;
         //private CharacterMovementController characterController;
 
         [Inject]
@@ -59,6 +63,7 @@ namespace Features.Core.Mono
 
         }
 
+
         private void PauseTrigger() 
         {
             if (Input.GetKeyDown(inputConfig.MenuButton))
@@ -72,6 +77,8 @@ namespace Features.Core.Mono
             if (CharacterMovementController.Instance != null)
                 CharacterMovementController.Instance.LockMouse = isPaused;
         }
+
+       
 
     }
 

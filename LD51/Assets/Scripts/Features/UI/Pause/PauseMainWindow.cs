@@ -55,6 +55,7 @@ namespace Features.UI.Pause
 
         private void OnMainMenuButtonPress()
         {
+            general.events.InvokePause();
             general.events.OnReturnToMainMenu?.Invoke();
         }
     }

@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTime: 10
   slowedTimeScale: 0.25
+  maxStamina: 4
+  staminaRestoringMultiplyer: 2
   timerMultiplier: 4
   mainMenuSceneName: MenuTest

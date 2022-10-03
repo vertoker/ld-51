@@ -8,14 +8,14 @@ namespace Mechanics
 {
     public class DeathCollider : MonoBehaviour
     {
-        [Inject]
-        private CoreEvents events;
+        //[Inject]
+        //private CoreEvents events;
         
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.CompareTag("Player"))
             {
-                events.OnGameOver?.Invoke();
+                CoreEvents.Instance.OnGameOver?.Invoke();
             }
         }
     }

@@ -4,6 +4,7 @@
 Temp/
 Library/
 Logs/
+UserSettings/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -43,3 +44,5 @@ LD51/UserSettings/EditorUserSettings.asset
 LD51/UserSettings/Layouts/default-2021.dwlt
 LD51/UserSettings/Layouts/default-2021.dwlt
 LD51/UserSettings/Layouts/default-2021.dwlt
+LD51/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+LD51/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
