@@ -68,6 +68,16 @@ namespace Features.Core
         {
             data.isPaused = isPaused;
 
+            if (isPaused)
+                Cursor.lockState = CursorLockMode.None;
+            else
+            {
+                
+                Cursor.lockState = CursorLockMode.Locked;
+               
+            }
+            Cursor.visible = isPaused;
+           
             Time.timeScale = data.isPaused ? 0f : data.timeScale;
         }
 

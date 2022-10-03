@@ -129,6 +129,9 @@ namespace Features.Core.Mono
                 return;
             m_isLoading = true;
 
+            if (data.isSlowedDown)
+                events.OnSlowdownTimePressed?.Invoke(false);
+
             //playerSpawner.DeactivateCharacter();
             StopTimer();
 
