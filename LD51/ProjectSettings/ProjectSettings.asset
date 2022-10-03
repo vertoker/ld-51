@@ -94,7 +94,7 @@ PlayerSettings:
   useFlipModelSwapchain: 1
   resizableWindow: 0
   useMacAppStoreValidation: 0
-  macAppStoreCategory: public.app-category.games
+  macAppStoreCategory: public.epeachy-band.games
   gpuSkinning: 0
   xboxPIXTextureCapture: 0
   xboxEnableAvatar: 0
@@ -139,7 +139,18 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 102900000, guid: d9aa601ddee6b304bac49b8fa79d8605, type: 3}
+  - {fileID: 102900000, guid: 0c77337cae4ffc7429831a7b34cb2783, type: 3}
+  - {fileID: 102900000, guid: b508d9ce45b8cba46b2f77a9de1a8f3a, type: 3}
+  - {fileID: 102900000, guid: 0648b42f8ff43904f8e6f64ba21741a9, type: 3}
+  - {fileID: 102900000, guid: a81627c89d0392c44a2c7153d9b9e1ca, type: 3}
+  - {fileID: 102900000, guid: 08c93bf37ddf8444281f4b92eb845e39, type: 3}
+  - {fileID: 102900000, guid: 04a4d052228a3c4468cd33b5a3872656, type: 3}
+  - {fileID: 102900000, guid: b6eac5c77aaec71478cd65e593c13939, type: 3}
+  - {fileID: 102900000, guid: e1b700604d0875e4baaa1981f6637294, type: 3}
+  - {fileID: 102900000, guid: fec1169faeb745b4abd6cca25c91a930, type: 3}
+  - {fileID: 102900000, guid: 44d20860f7768d64aa1de09aea204ce5, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
