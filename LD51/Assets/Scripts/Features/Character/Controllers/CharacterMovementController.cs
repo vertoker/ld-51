@@ -23,15 +23,19 @@ namespace Features.Character.Controllers
         private CharacterModel _characterModel;
         private Vector2 _look;
 
+        private GlobalState _globalState;
+
         private IDisposable _lookStream;
 
         private readonly InputConfig _inputConfig;
         private readonly CompositeDisposable _compositeDisposable;
         
-        private CharacterMovementController(InputConfig inputConfig)
+        private CharacterMovementController(InputConfig inputConfig, 
+            GlobalState globalState)
         {
             
             _inputConfig = inputConfig;
+            _globalState = globalState;
             
             _compositeDisposable = new CompositeDisposable();
             Instance = this;
@@ -40,9 +44,9 @@ namespace Features.Character.Controllers
         public void Initialize()
         {
             Cursor.lockState = CursorLockMode.Locked;
-            var mouseSense = PlayerPrefs.HasKey(GlobalConst.MouseSensitivityPref) 
-                ? PlayerPrefs.GetFloat(GlobalConst.MouseSensitivityPref)
-                : 10f;
+            //var mouseSense = PlayerPrefs.HasKey(GlobalConst.MouseSensitivityPref) 
+            //    ? PlayerPrefs.GetFloat(GlobalConst.MouseSensitivityPref)
+            //    : 10f;
                 
 //#if UNITY_EDITOR
 //            mouseSense = _inputConfig.MouseSensitivityX;
@@ -75,10 +79,10 @@ namespace Features.Character.Controllers
                     }
                     
                     if (LockMouse) return;
-                    _look.x = Input.GetAxis(HorizontalLook) * mouseSense * 
-                              Time.unscaledDeltaTime;
-                    _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook) * mouseSense * 
-                        Time.unscaledDeltaTime,
+                    _look.x = Input.GetAxis(HorizontalLook) * 
+                        _globalState.mouseSense * Time.unscaledDeltaTime;
+                    _look.y = Mathf.Clamp(_look.y - Input.GetAxis(VerticalLook) * 
+                        _globalState.mouseSense * Time.unscaledDeltaTime,
                         _inputConfig.MouseLock.x, _inputConfig.MouseLock.y);
                     
                     _characterModel.LookDirection.Value = 

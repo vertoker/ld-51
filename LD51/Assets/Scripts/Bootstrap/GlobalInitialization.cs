@@ -1,21 +1,15 @@
 
 using UnityEngine;
 using Data;
+using Zenject;
 
 namespace Bootstrap 
 {
-    public class GlobalInitialization
+    public class GlobalInitialization : MonoInstaller
     {
-        [RuntimeInitializeOnLoadMethod]
-        static void Init() 
+        public override void InstallBindings()
         {
-            AudioListener.volume =
-                (PlayerPrefs.HasKey(GlobalConst.AudioVolumePref)) ?
-                PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref) :
-                GlobalConst.StandardVolume;
-
-            Debug.Log("INIT COMPLETE");
-
+            Container.Bind<GlobalState>().AsSingle();
         }
     }
 }

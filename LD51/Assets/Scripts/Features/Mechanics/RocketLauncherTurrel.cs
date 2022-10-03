@@ -36,8 +36,7 @@ namespace Mechanics
             _turretClipData = new AudioStateData(soundConfig.GetSoundsByType(SoundType.RocketThrow));
             _rocketClipData = new AudioStateData(soundConfig.GetSoundsByType(SoundType.Explosion));
         }
-
-        private void Start()
+        private void Awake()
         {
             MessageBroker
                 .Default
@@ -46,6 +45,9 @@ namespace Mechanics
                 {
                     target = message.CharacterTransform;
                 });
+        }
+        private void Start()
+        {
             
             StartCoroutine(AutoShot());
         }

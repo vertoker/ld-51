@@ -3,12 +3,17 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Zenject;
+
 namespace Features.UI.Menu.Views
 {
     public class MenuSlidersController : MonoBehaviour
     {
         [SerializeField] private Slider _mouseSensitivity;
         [SerializeField] private Slider _soundVolume;
+
+        [Inject]
+        private GlobalState globalState;
 
         //[SerializeField] private float _standardSensitivity;
         //[SerializeField] private float _standardVolume;
@@ -46,6 +51,7 @@ namespace Features.UI.Menu.Views
                 .Subscribe(value =>
                 {
                     PlayerPrefs.SetFloat(GlobalConst.MouseSensitivityPref, value);
+                    globalState.mouseSense = value;
                 })
                 .AddTo(this);
 

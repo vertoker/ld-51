@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Data\AudioStateData.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\FinishLevel.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterMovementController.cs" />
+    <Compile Include="Assets\Scripts\GlobalState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IModel.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSlidersController.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Jumper.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Assets\Scripts\Features\CameraControl\Bootstrap\CameraControlInstaller.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\ButtonActivate.cs" />
     <Compile Include="Assets\Scripts\Bootstrap\LevelInstaller.cs" />
+    <Compile Include="Assets\Scripts\Bootstrap\GlobalInitialization.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\ShuttersMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\EnableRigidbodyObject.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Button.cs" />

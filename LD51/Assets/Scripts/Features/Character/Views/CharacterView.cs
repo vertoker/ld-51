@@ -84,8 +84,9 @@ namespace Features.Character.Views
                 .Where(_ => _model.Jumpable)
                 .Subscribe(_ =>
                 {
-                    _animator.SetBool(CharacterAnimationConst.JumpTrigger, true);
-                    _animator.SetBool(CharacterAnimationConst.GroundedTrigger, false);
+                    _animator.Play("Jump");
+                    //_animator.SetBool(CharacterAnimationConst.JumpTrigger, true);
+                    //_animator.SetBool(CharacterAnimationConst.GroundedTrigger, false);
 
                     _characterEffectsPresenter.PlayJumpEffect();
                     _characterSoundController.PlayJump();
@@ -146,8 +147,7 @@ namespace Features.Character.Views
                 .Subscribe(_ =>
                 {
                     _model.Jumpable = true;
-                    _animator.SetBool(CharacterAnimationConst.GroundedTrigger, true);
-                    _animator.SetBool(CharacterAnimationConst.JumpTrigger, false);
+                    _animator.Play("Running");
                 })
                 .AddTo(this);
         }
