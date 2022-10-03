@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\Data\SoundData.cs" />
     <Compile Include="Assets\Scripts\Features\CameraControl\Views\ActionCameraView.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Models\MenuBehaviourCatchService.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\FollowTarget.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Configs\CharacterConfig.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Models\CharacterModel.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IIdentifier.cs" />
@@ -110,13 +111,13 @@
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\ShuttersMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\Features\Mechanics\Button.cs" />
     <Compile Include="Assets\Scripts\Features\Character\Controllers\CharacterEffectsPresenter.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\DeathCollider.cs" />
     <Compile Include="Assets\Scripts\Features\SceneSwitcher\Models\SceneSwitcherService.cs" />
     <Compile Include="Assets\Scripts\Features\CameraControl\Messages\CameraControlSignals.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Messages\MenuBehaviourSignals.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IStorage.cs" />
     <Compile Include="Assets\Scripts\Features\UI\Menu\Views\MenuSettingsBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\DeathCollider.cs" />
-    <Compile Include="Assets\Scripts\Features\Mechanics\FollowTarget.cs" />
+    <Compile Include="Assets\Scripts\Features\Mechanics\Arrow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\LD51Scripts.asmdef" />
