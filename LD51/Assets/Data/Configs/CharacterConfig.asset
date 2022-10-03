@@ -15,7 +15,7 @@ MonoBehaviour:
   _characterPrefab: {fileID: 3999668486007306815, guid: 1a9c9106d15169343ad3324b1d6a6bdc,
     type: 3}
   _standardFOV: 90
-  _gravityScale: 4
+  _gravityScale: 5
   _speed: 40
   _jumpForce: 30
   _maximumVerticalVelocity: 30
