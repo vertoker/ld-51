@@ -18,10 +18,14 @@ namespace Mechanics
         {
             _self = GetComponent<Transform>();
         }
+        private void Start()
+        {
+            
+        }
 
         private void FixedUpdate()
         {
-            var nextPosition = Vector3.MoveTowards(_self.position, positions[currentTargetPosition], speed);
+            var nextPosition = Vector3.MoveTowards(_self.position, positions[currentTargetPosition], speed * Time.timeScale);
             if (_self.position == nextPosition)
             {
                 currentTargetPosition++;
