@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Features.Core.Config 
 {
@@ -11,6 +12,7 @@ namespace Features.Core.Config
         public float startTime;
         public float slowedTimeScale;
         public float timerMultiplier;
+        public string mainMenuSceneName;
     }
 
 }

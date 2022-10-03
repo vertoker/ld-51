@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using Features.Core.Config;
+using UnityEngine.SceneManagement;
 
 namespace Features.Core 
 {
@@ -11,12 +12,15 @@ namespace Features.Core
         public float TimerMultyplier => m_timerMultiplier;
         public float SlowedTimeScale => m_slowedTimeScale;
 
+        public string MainMenuScene => m_mainMenuScene;
+
         
         private CoreConfig config;
 
         private float m_startTime;
         private float m_slowedTimeScale;
         private float m_timerMultiplier;
+        private string m_mainMenuScene;
 
 
         public int currentSceneIndex;
@@ -36,12 +40,13 @@ namespace Features.Core
             m_startTime = config.startTime;
             m_slowedTimeScale = config.slowedTimeScale;
             m_timerMultiplier = config.timerMultiplier;
+            m_mainMenuScene = config.mainMenuSceneName;
+           
 
             Init();
 
             currentLevel = 1;
-            currentSceneIndex =
-               UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         }
 
         public void Init() 

@@ -15,3 +15,4 @@ MonoBehaviour:
   startTime: 10
   slowedTimeScale: 0.15
   timerMultiplier: 4
+  mainMenuSceneName: MenuTest

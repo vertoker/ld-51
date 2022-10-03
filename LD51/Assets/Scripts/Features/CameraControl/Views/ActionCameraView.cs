@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
+using System.Threading.Tasks;
 using Features.CameraControl.Configs;
 using Features.CameraControl.Messages;
 using Features.UI.Menu.Messages;
@@ -40,7 +41,7 @@ namespace Features.CameraControl.Views
                 .Subscribe(target => CatchObjectTranslation(target.ViewOption, target.Transform, target.Offset, target.PresenterMode));
         }
 
-        private async void CatchMenuTranslation(MenuAction translation)
+        private  void CatchMenuTranslation(MenuAction translation)
         {
             _seekTarget = false;
             var targetTranslation = translation switch
@@ -52,41 +53,64 @@ namespace Features.CameraControl.Views
                 _ => transform
             };
             _cameraTarget = targetTranslation;
-            await TranslateToMenuOption(targetTranslation);
+            StartCoroutine( TranslateToMenuOption(targetTranslation));
         }
         
-        private async void CatchObjectTranslation(EntityViewOption viewOption, Transform target, Vector3 objectOffset, bool presenterMode)
+        private  void CatchObjectTranslation(EntityViewOption viewOption, Transform target, Vector3 objectOffset, bool presenterMode)
         {
             transform.SetParent(target);
             _seekTarget = false;
             _cameraTarget = target;
             _viewOption = viewOption;
             _objectOffset = objectOffset;
-            if (presenterMode) await TranslateToObject(target, 5.0f);
+            if (presenterMode) 
+                StartCoroutine( TranslateToObject(target, 5.0f));
         }
 
-        private async Task TranslateToObject(Transform objectTransform, float presentationTime)
+        //private async Task TranslateToObject(Transform objectTransform, float presentationTime)
+        //{
+        //    var estimatedTime = 0f;
+            
+        //    while (transform.position != objectTransform.position - _objectOffset && objectTransform == _cameraTarget)
+        //    {
+        //        transform.position = Vector3.Lerp(transform.position, objectTransform.position + _objectOffset, _behaviourConfig.CameraTranslateSpeed * Time.deltaTime);
+        //        transform.LookAt(objectTransform);
+        //        await Task.Yield();
+        //    }
+            
+        //    while (estimatedTime < presentationTime)
+        //    {
+        //        estimatedTime += Time.deltaTime;
+        //        transform.RotateAround(objectTransform.position, Vector3.up, 10f * Time.deltaTime);
+        //        await Task.Yield();
+        //    }
+
+        //    _seekTarget = true;
+        //}
+
+        private IEnumerator TranslateToObject
+            (Transform objectTransform, float presentationTime)
         {
             var estimatedTime = 0f;
-            
+
             while (transform.position != objectTransform.position - _objectOffset && objectTransform == _cameraTarget)
             {
                 transform.position = Vector3.Lerp(transform.position, objectTransform.position + _objectOffset, _behaviourConfig.CameraTranslateSpeed * Time.deltaTime);
                 transform.LookAt(objectTransform);
-                await Task.Yield();
+                yield return null;
             }
-            
+
             while (estimatedTime < presentationTime)
             {
                 estimatedTime += Time.deltaTime;
                 transform.RotateAround(objectTransform.position, Vector3.up, 10f * Time.deltaTime);
-                await Task.Yield();
+                yield return null;
             }
 
             _seekTarget = true;
         }
-        
-        private async Task TranslateToMenuOption(Transform presenter)
+
+        private IEnumerator TranslateToMenuOption(Transform presenter)
         {
             var accuracy = 0.999999f;
             while (transform && transform.position != presenter.position && 
@@ -95,7 +119,7 @@ namespace Features.CameraControl.Views
             {
                 transform.position = Vector3.Lerp(transform.position, presenter.position, _behaviourConfig.CameraTranslateSpeed * Time.deltaTime);
                 transform.rotation = Quaternion.Lerp(transform.rotation, presenter.rotation, _behaviourConfig.CameraRotateSpeed * Time.deltaTime);
-                await Task.Yield();
+                yield return null;
             }
         }
 
@@ -123,6 +147,11 @@ namespace Features.CameraControl.Views
                 }
             }
 
+        }
+
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
         }
     }
 }

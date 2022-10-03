@@ -81,12 +81,14 @@ namespace Features.Core.Mono
         {
             events.OnGameOver += GameOver;
             events.OnLevelComplete += LoadNextLevel;
+            events.OnReturnToMainMenu += ReturnToMainMenu;
         }
 
         private void OnDisable()
         {
             events.OnGameOver -= GameOver;
             events.OnLevelComplete -= LoadNextLevel;
+            events.OnReturnToMainMenu -= ReturnToMainMenu;
         }
 
         // Update is called once per frame
@@ -99,6 +101,11 @@ namespace Features.Core.Mono
             //    GameInit();
             //}
 
+        }
+
+        private void OnDestroy()
+        {
+            StopTimer();
         }
 
         private void GameInit() 
@@ -123,9 +130,12 @@ namespace Features.Core.Mono
 
             //playerSpawner.DeactivateCharacter();
             StopTimer();
+
             ++data.currentLevel;
             if (data.currentLevel <= m_levelListCount)
-                m_curLevelConfig = levelList.levelList[data.currentLevel-1];
+            {
+                m_curLevelConfig = levelList.levelList[data.currentLevel - 1];   
+            }
             data.Init();
 
             bool isLevel = UpdateSceneToLoad();
@@ -156,6 +166,7 @@ namespace Features.Core.Mono
             StopTimer();
 
             data.Init();
+            events.OnSlowdownTimePressed?.Invoke(false);
 
             //playerSpawner.TeleportCurrentTo(m_curLevelConfig.playerSpawnPosition);
             SceneManager.UnloadSceneAsync(m_sceneToLoad);
@@ -177,6 +188,13 @@ namespace Features.Core.Mono
             m_isRestarting = false;
             m_isLoading = false;
 
+            SceneManager.sceneUnloaded -= AfterSceneUnload;
+
+        }
+
+        private void ReturnToMainMenu() 
+        {
+            SceneManager.LoadScene(data.MainMenuScene, LoadSceneMode.Single);
         }
 
         private void StartTimer() 
