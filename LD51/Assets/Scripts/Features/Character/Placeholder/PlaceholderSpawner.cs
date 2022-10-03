@@ -16,7 +16,7 @@ namespace Features.Character.Placeholder
         
         private void Start()
         {
-            _characterSpawnService.SpawnCharacter(transform.position);
+            _characterSpawnService.SpawnCharacter(transform.position, new Vector2(transform.eulerAngles.y, transform.eulerAngles.x));
         }
     }
 }

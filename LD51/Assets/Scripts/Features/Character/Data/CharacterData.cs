@@ -1,4 +1,6 @@
-﻿namespace Features.Character.Data
+﻿using UnityEngine;
+
+namespace Features.Character.Data
 {
     public class CharacterData
     {
