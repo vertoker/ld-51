@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using Features.Character.Configs;
 using Features.Character.Controllers;
+using Features.Character.Data;
 using Features.Character.Models;
 using UniRx;
 using UniRx.Triggers;
@@ -21,20 +22,20 @@ namespace Features.Character.Views
         [SerializeField] private CharacterSoundController _characterSoundController;
         [SerializeField] private CharacterCameraPresenter _characterCameraPresenter;
         [SerializeField] private CharacterEffectsPresenter _characterEffectsPresenter;
-        [SerializeField] private CharacterMovementController _characterMovementPresenter;
-
+        [SerializeField] private Animator _animator;
+        
         private CharacterModel _model;
         private CharacterConfig _characterConfig;
-        
-        
+        private CharacterMovementController _characterMovementController;
 
         [Inject]
         public void Construct(CharacterModel characterModel,
-            CharacterConfig characterConfig, CharacterMovementController characterMovementPresenter)
+            CharacterConfig characterConfig,
+            CharacterMovementController characterMovementController)
         {
             _model = characterModel;
             _characterConfig = characterConfig;
-            _characterMovementPresenter = characterMovementPresenter;
+            _characterMovementController = characterMovementController;
 
             _characterSoundController.SetCharacter(_model);
             _characterEffectsPresenter.SetCharacter(_model);
@@ -57,13 +58,13 @@ namespace Features.Character.Views
                     
                     var move = velocity;
                     move.y = 0f;
+                    _animator.SetFloat(CharacterAnimationConst.SpeedParam, move.magnitude / 5f);
                     
                     var distance = move.magnitude * Time.fixedDeltaTime;
 
                     _model.IsMoving.Value = move != Vector3.zero;
                     _model.Grounded.Value = velocity.y == 0f;
-                    //_model.LookDirection.Value = _povCamera.transform.eulerAngles;
-
+                    
                     move.Normalize();
                     
                     var movement = _rigidbody.SweepTest(move, out var _, distance) 
@@ -83,6 +84,9 @@ namespace Features.Character.Views
                 .Where(_ => _model.Jumpable)
                 .Subscribe(_ =>
                 {
+                    _animator.SetBool(CharacterAnimationConst.JumpTrigger, true);
+                    _animator.SetBool(CharacterAnimationConst.GroundedTrigger, false);
+
                     _characterEffectsPresenter.PlayJumpEffect();
                     _characterSoundController.PlayJump();
                     _rigidbody.AddForce(transform.up * _characterConfig.JumpForce, 
@@ -109,9 +113,8 @@ namespace Features.Character.Views
                         forceToApply = _model.MovementDirection.Value.normalized * _characterConfig.DashForce;
                     forceToApply.Set(forceToApply.x, 0f, forceToApply.z);
 
-                    _characterMovementPresenter.LockMovement = true;
+                    _characterMovementController.LockMovement = true;
 
-                    //await UniTask.Delay(TimeSpan.FromSeconds(0.025f));
                     await SmoothLerpSpeed(_characterConfig.DashSpeed);
                     _rigidbody.AddForce(forceToApply, ForceMode.Impulse);
                     
@@ -119,7 +122,7 @@ namespace Features.Character.Views
                     
                     await UniTask.Delay(TimeSpan.FromSeconds(_characterConfig.DashTime));
 
-                    _characterMovementPresenter.LockMovement = false;
+                    _characterMovementController.LockMovement = false;
                     _rigidbody.velocity = Vector3.zero;
                     _rigidbody.useGravity = true;
                     _characterCameraPresenter.ChangeFOV(_characterConfig.StandardFOV);
@@ -143,6 +146,8 @@ namespace Features.Character.Views
                 .Subscribe(_ =>
                 {
                     _model.Jumpable = true;
+                    _animator.SetBool(CharacterAnimationConst.GroundedTrigger, true);
+                    _animator.SetBool(CharacterAnimationConst.JumpTrigger, false);
                 })
                 .AddTo(this);
         }
