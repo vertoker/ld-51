@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Threading.Tasks;
 using Features.CameraControl.Messages;
 using Features.SceneSwitcher.Data;
@@ -7,6 +8,7 @@ using Features.UI.Menu.Messages;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using DG.Tweening;
 
 namespace Features.UI.Menu.Models
 {
@@ -14,6 +16,10 @@ namespace Features.UI.Menu.Models
     {
         private SignalBus _signalBus;
         [Inject(Id = "FadeCanvasGroup")] private CanvasGroup _canvasGroup;
+
+       // private Cancella
+
+        private WaitForSeconds  delay = new WaitForSeconds(2f);
         
         private MenuManagerService(SignalBus signalBus)
         {
@@ -27,7 +33,7 @@ namespace Features.UI.Menu.Models
                 .Subscribe(signal => GetAction(signal.Action));
         }
 
-        private async void GetAction(MenuAction action)
+        private void GetAction(MenuAction action)
         {
             switch (action)
             {
@@ -38,7 +44,7 @@ namespace Features.UI.Menu.Models
                 }
                 case MenuAction.Play:
                 {
-                    await PlayButtonPressed();
+                    PlayButtonPressed();
                     break;
                 }
                 case MenuAction.Settings:
@@ -63,15 +69,36 @@ namespace Features.UI.Menu.Models
             }
         }
 
-        private async Task PlayButtonPressed()
+        //private async Task PlayButtonPressed()
+        //{
+        //    while (_canvasGroup.alpha < 1)
+        //    {
+        //        _canvasGroup.alpha = Mathf.MoveTowards(_canvasGroup.alpha, 1, 2f * Time.deltaTime);
+        //        await Task.Yield();
+        //    }
+        //    await Task.Delay(TimeSpan.FromSeconds(2f));
+        //    _signalBus.TryFire(new SceneSwitcherSignals.SwitchToLevel(SceneSwitcherRegistry.FirstLevel));
+        //}
+
+        private void PlayButtonPressed()
         {
-            while (_canvasGroup.alpha < 1)
-            {
-                _canvasGroup.alpha = Mathf.MoveTowards(_canvasGroup.alpha, 1, 2f * Time.deltaTime);
-                await Task.Yield();
-            }
-            await Task.Delay(TimeSpan.FromSeconds(2f));
-            _signalBus.TryFire(new SceneSwitcherSignals.SwitchToLevel(SceneSwitcherRegistry.FirstLevel));
+            //while (_canvasGroup.alpha < 1)
+            //{
+            //    _canvasGroup.alpha = Mathf.MoveTowards(_canvasGroup.alpha, 1, 2f * Time.deltaTime);
+            //    await Task.Yield();
+            //}
+            //await Task.Delay(TimeSpan.FromSeconds(2f));
+
+            //_canvasGroup.DOFade(1, 2f).OnComplete(()=> 
+            //{
+               
+            //});
+            _signalBus.TryFire(new SceneSwitcherSignals.
+               SwitchToLevel(SceneSwitcherRegistry.FirstLevel));
+
+
         }
+
+
     }
 }

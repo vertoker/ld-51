@@ -18,6 +18,7 @@ namespace Features.Core
 
         public System.Action OnLevelComplete;
         public System.Action OnGameOver;
+        public System.Action OnReturnToMainMenu;
 
 
         [Inject]
@@ -35,7 +36,7 @@ namespace Features.Core
             OnPauseButtonPressed -= Pause;
         }
 
-        void Slowdown(bool isSlowedDown) 
+        public void Slowdown(bool isSlowedDown) 
         {
             data.isSlowedDown = isSlowedDown;
 
@@ -43,6 +44,11 @@ namespace Features.Core
 
             Time.timeScale = data.timeScale;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        }
+
+        public void InvokePause() 
+        {
+            OnPauseButtonPressed?.Invoke(!data.isPaused);
         }
 
         void Pause(bool isPaused) 

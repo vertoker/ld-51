@@ -9,7 +9,11 @@ namespace Bootstrap
     public class MenuInstaller : MonoInstaller
     {
         [SerializeField] private CanvasGroup screenFadeGroup;
-        
+
+        public override void Start()
+        {
+            screenFadeGroup.alpha = 0;
+        }
         public override void InstallBindings()
         {
             SignalBusInstaller.Install(Container);
