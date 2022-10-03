@@ -1,7 +1,10 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Configs;
+using Data;
 using UnityEngine;
+using Zenject;
 
 namespace Mechanics
 {
@@ -15,7 +18,16 @@ namespace Mechanics
         private bool immortality = true;
         [SerializeField] private Transform tr;
         [SerializeField] private Rigidbody rb;
+        [SerializeField] private AudioSource _rocketSource;
 
+        private AudioStateData _rocketClipData;
+        
+        [Inject]
+        public void Construct(SoundConfig soundConfig)
+        {
+            _rocketClipData = new AudioStateData(soundConfig.GetSoundsByType(SoundType.Explosion));
+        }
+        
         public void SetTarget(Transform target, CallExplosion effect)
         {
             if (target == null)
@@ -46,6 +58,11 @@ namespace Mechanics
                 return;
             active = false;
             immortality = true;
+
+            _rocketSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+            _rocketSource.clip = _rocketClipData.GetNext();
+            _rocketSource.Play();
+            
             effect.Invoke(tr.position, gameObject);
         }
     }

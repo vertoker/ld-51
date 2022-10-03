@@ -3,7 +3,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
-
+using Configs;
+using Data;
+using Zenject;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -14,13 +16,26 @@ namespace Mechanics
     {
         [SerializeField] private bool isOn = false;
         [SerializeField] private bool isInstantly = true;
+        [SerializeField] private AudioSource _buttonSource;
+
+        private AudioStateData _buttonPressData;
+        private AudioStateData _buttonUnpressData;
+        
         private Transform _bottom, _active;
+        
 #if UNITY_EDITOR
         public float OFFSET_SIZE = 0.5f;
 #endif
 
         [SerializeField] private List<Activatable> subs = new List<Activatable>();
 
+        [Inject]
+        public void Construct(SoundConfig soundConfig)
+        {
+            _buttonPressData = new AudioStateData(soundConfig.GetSoundsByType(SoundType.ButtonPress));
+            _buttonUnpressData = new AudioStateData(soundConfig.GetSoundsByType(SoundType.ButtonUnpress));
+        }
+        
         private void Awake()
         {
             _bottom = transform.GetChild(0);
@@ -35,6 +50,9 @@ namespace Mechanics
             foreach (var sub in subs)
                 sub.Activate();
             _active.DOLocalMoveY(0.11f, 0.3f);
+            _buttonSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+            _buttonSource.clip = _buttonPressData.GetNext();
+            _buttonSource.Play();
         }
         public void Unpress()
         {
@@ -44,6 +62,9 @@ namespace Mechanics
             foreach (var sub in subs)
                 sub.Deactivate();
             _active.DOLocalMoveY(0.3f, 0.3f);
+            _buttonSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
+            _buttonSource.clip = _buttonUnpressData.GetNext();
+            _buttonSource.Play();
         }
     }
 
