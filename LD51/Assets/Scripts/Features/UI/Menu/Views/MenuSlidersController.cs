@@ -9,9 +9,20 @@ namespace Features.UI.Menu.Views
     {
         [SerializeField] private Slider _mouseSensitivity;
         [SerializeField] private Slider _soundVolume;
+
+        [SerializeField] private float _standardSensitivity;
+        [SerializeField] private float _standardVolume;
         
         private void Start()
         {
+            _mouseSensitivity.value = PlayerPrefs.HasKey(GlobalConst.MouseSensitivityPref)
+                ? PlayerPrefs.GetFloat(GlobalConst.MouseSensitivityPref)
+                : _standardSensitivity;
+            
+            _soundVolume.value = PlayerPrefs.HasKey(GlobalConst.AudioVolumePref)
+                ? PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref)
+                : _standardVolume;
+
             _mouseSensitivity
                 .OnValueChangedAsObservable()
                 .Subscribe(value =>
