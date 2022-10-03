@@ -63,14 +63,14 @@ namespace Features.Character.Controllers
         public void PlayDash()
         {
             _dashSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
-            _dashSource.clip = _dash.GetNext();
+            _dashSource.clip = _dash.GetRandom();
             _dashSource.Play();
         }
 
         public void PlayJump()
         {
             _jumpSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
-            _jumpSource.clip = _jump.GetNext();
+            _jumpSource.clip = _jump.GetRandom();
             _jumpSource.Play();
         }
     }

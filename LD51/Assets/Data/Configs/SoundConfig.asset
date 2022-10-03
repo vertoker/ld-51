@@ -36,3 +36,33 @@ MonoBehaviour:
   - soundType: 6
     mixedSounds:
     - {fileID: 8300000, guid: 2e8b5f5c213289f4bb47a180b16fe926, type: 3}
+  - soundType: 12
+    mixedSounds:
+    - {fileID: 8300000, guid: 79685d044c2624145b58f4860fd679bb, type: 3}
+    - {fileID: 8300000, guid: bc6d4525dd3d6ae448e17e4f18c89054, type: 3}
+    - {fileID: 8300000, guid: 43f66dd43ed2d7c40b714a61e6956393, type: 3}
+    - {fileID: 8300000, guid: 24842aea8956e35408df344ddd2ecf3c, type: 3}
+    - {fileID: 8300000, guid: 9be96a179e2f19d45b260767ad668501, type: 3}
+  - soundType: 11
+    mixedSounds:
+    - {fileID: 8300000, guid: c1d4fd523ee9e9d41a0311b5eb0187f9, type: 3}
+    - {fileID: 8300000, guid: 87b36934b3169ac438a0d83ca4050c48, type: 3}
+    - {fileID: 8300000, guid: b757f937bb5951a4f9eab6e6f20b2271, type: 3}
+    - {fileID: 8300000, guid: f74bc544f4246694ca64b825832c26cf, type: 3}
+  - soundType: 7
+    mixedSounds:
+    - {fileID: 8300000, guid: e354833def103bb479b6254b213a536a, type: 3}
+  - soundType: 8
+    mixedSounds:
+    - {fileID: 8300000, guid: 71651b566ea42bc4c8491af0e8c3cdff, type: 3}
+  - soundType: 9
+    mixedSounds:
+    - {fileID: 8300000, guid: 572de59c7e5ced3449ff387ed8f8b36b, type: 3}
+  - soundType: 10
+    mixedSounds:
+    - {fileID: 8300000, guid: cadaaf36ea6422e40ac55534254a9162, type: 3}
+  - soundType: 13
+    mixedSounds:
+    - {fileID: 8300000, guid: ca2c25ee6b3d231428df703009b3fbfd, type: 3}
+    - {fileID: 8300000, guid: fd81112b407ba6246ba2bcd7d742a263, type: 3}
+    - {fileID: 8300000, guid: c7213e6b2bc4da141b7e4de185eb9121, type: 3}

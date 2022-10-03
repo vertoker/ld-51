@@ -39,7 +39,7 @@ namespace Mechanics
             leftBlock.DOLocalMoveX(leftEnd, durationOpenClose);
             rightBlock.DOLocalMoveX(rightEnd, durationOpenClose);
             _doorSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
-            _doorSource.clip = _doorOpenData.GetNext();
+            _doorSource.clip = _doorOpenData.GetRandom();
             _doorSource.Play();
         }
         public override void Deactivate()
@@ -47,7 +47,7 @@ namespace Mechanics
             leftBlock.DOLocalMoveX(leftStart, durationOpenClose);
             rightBlock.DOLocalMoveX(rightStart, durationOpenClose);
             _doorSource.volume = PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref);
-            _doorSource.clip = _doorCloseData.GetNext();
+            _doorSource.clip = _doorCloseData.GetRandom();
             _doorSource.Play();
         }
     }

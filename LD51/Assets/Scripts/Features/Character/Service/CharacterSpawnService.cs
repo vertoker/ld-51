@@ -1,8 +1,10 @@
-﻿using Features.Character.Configs;
+﻿using System;
+using Features.Character.Configs;
 using Features.Character.Controllers;
 using Features.Character.Data;
 using Features.Character.Factories;
 using Features.Character.Views;
+using UniRx;
 using UnityEngine;
 
 namespace Features.Character.Service
@@ -13,6 +15,16 @@ namespace Features.Character.Service
         private readonly CharacterModelFactory _characterModelFactory;
         private readonly CharacterViewFactory _characterViewFactory;
         private readonly CharacterConfig _characterConfig;
+
+        public class CharacterSpawned
+        {
+            public Transform CharacterTransform { get; }
+
+            public CharacterSpawned(Transform characterTransform)
+            {
+                CharacterTransform = characterTransform;
+            }
+        }
 
         private CharacterView _currentCharacter;
 
@@ -44,7 +56,7 @@ namespace Features.Character.Service
             
             _characterMovementController.SetCharacter(characterModel);
 
-            
+            MessageBroker.Default.Publish(new CharacterSpawned(_currentCharacter.transform));
         }
 
         public void TeleportCurrentTo(Vector3 position)
