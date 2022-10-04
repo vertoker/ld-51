@@ -1929,17 +1929,17 @@ PrefabInstance:
     - target: {fileID: 436934373315866909, guid: 6a0ec24d3a067764c9ed72b6a5831ad4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 233.5079
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 436934373315866909, guid: 6a0ec24d3a067764c9ed72b6a5831ad4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 409.49
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 436934373315866909, guid: 6a0ec24d3a067764c9ed72b6a5831ad4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.9689
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 436934373315866909, guid: 6a0ec24d3a067764c9ed72b6a5831ad4,
         type: 3}
