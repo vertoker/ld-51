@@ -57,7 +57,29 @@ namespace Features.Character.Service
 
             _characterMovementController.SetCharacter(characterModel);
 
-            MessageBroker.Default.Publish(new CharacterSpawned(_currentCharacter.transform));
+            MessageBroker.Default.Publish(
+                new CharacterSpawned(_currentCharacter.transform));
+        }
+
+        public void SpawnCharacter(Vector3 position, Quaternion rotation)
+        {
+            var data = new CharacterData
+            {
+                Speed = _characterConfig.Speed,
+                JumpForce = _characterConfig.JumpForce,
+                DashForce = _characterConfig.DashForce
+            };
+
+            var characterModel = _characterModelFactory.Create(data);
+            _currentCharacter = _characterViewFactory.Create(characterModel);
+
+            _currentCharacter.transform.position = position;
+            _currentCharacter.transform.rotation = rotation;
+
+            _characterMovementController.SetCharacter(characterModel);
+
+            MessageBroker.Default.Publish(
+                new CharacterSpawned(_currentCharacter.transform));
         }
 
         public void TeleportCurrentTo(Vector3 position)
