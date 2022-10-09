@@ -1,4 +1,5 @@
-using System;
+
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
@@ -18,13 +19,29 @@ namespace Features.UI.Menu.Views
 
         private void Start()
         {
+            //StartCoroutine(printLogs());
             ExecuteRunningLine(_currentLineIndex);
         }
+        IEnumerator printLogs() 
+        {
+            Debug.Log(_currentLineDisplay.transform.position.y);
+            var prevVal = _currentLineDisplay.transform.position.y;
+            while (true) 
+            {
+                if (_currentLineDisplay.transform.position.y != prevVal)
+                {
+                    prevVal = _currentLineDisplay.transform.position.y;
+                    Debug.Log(_currentLineDisplay.transform.position.y);
 
+                }
+                yield return null;
+            }
+        }
+       
         private void ExecuteRunningLine(int line)
         {
             _currentLineDisplay.text = _displayLines[line];
-            var offset = TextWidthApproximation(_displayLines[line], _currentLineDisplay.font,
+            float offset = TextWidthApproximation(_displayLines[line], _currentLineDisplay.font,
                 _currentLineDisplay.fontSize, FontStyles.Normal);
             var startPosition = new Vector2(-offset,
                 _currentLineDisplay.rectTransform.anchoredPosition.y);
@@ -32,12 +49,14 @@ namespace Features.UI.Menu.Views
             _currentLineDisplay.rectTransform.anchoredPosition = startPosition;
 
             _currentLineDisplay.rectTransform
-                .DOMove(endPoint, Screen.width / (_speed * SpeedMultiplier))
+                .DOMoveX(endPoint.x, Screen.width / (_speed * SpeedMultiplier))
                 .OnComplete(() =>
                 {
-                    _currentLineIndex = _currentLineIndex < _displayLines.Count
-                        ? _currentLineIndex + 1
-                        : 0;
+                    
+                    _currentLineIndex = _currentLineIndex < _displayLines.Count-1 
+                    ? _currentLineIndex + 1 
+                    : 0;
+
                     ExecuteRunningLine(_currentLineIndex);
                 })
                 .SetEase(Ease.Linear);

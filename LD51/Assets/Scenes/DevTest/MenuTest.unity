@@ -951,11 +951,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -971,7 +971,7 @@ Canvas:
   m_GameObject: {fileID: 1605760636}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1158,16 +1158,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displayLines:
-  - Please try scroll mouse wheel Please try scroll mouse wheel Please try scroll
-    mouse wheel Please try scroll mouse wheel
-  - EAT THIS RING EAT THIS RING EAT THIS RING EAT THIS RING EAT THIS RING EAT THIS
+  - Please try scrolling mouse wheel Please try scrolling mouse wheel Please try
+    scrolling mouse wheel Please try scrolling mouse wheel
+  - ' EAT THIS RING EAT THIS RINGEAT THIS RING EAT THIS RING EAT THIS RING EAT THIS
     RING EAT THIS RING EAT THIS RING EAT THIS RING EAT THIS RING EAT THIS RING EAT
-    THIS RING
-  - Consider rate us on ludum dare! Consider rate us on ludum dare!
+    THIS RING'
+  - Consider rating us on ludum dare! Consider rating us on ludum dare!
   - 'PISS YOURSELF PISS YOURSELF PISS YOURSELF PISS YOURSELF PISS YOURSELF PISS YOURSELF
     PISS YOURSELF PISS YOURSELF '
   _currentLineDisplay: {fileID: 1857804412}
-  _speed: 5
+  _speed: 3
 --- !u!114 &1857804412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_fontSize: 30
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
