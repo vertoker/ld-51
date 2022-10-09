@@ -11,6 +11,7 @@ namespace Configs
         [SerializeField] private KeyCode actionButton;
         [SerializeField] private KeyCode timeStopButton;
         [SerializeField] private KeyCode menuButton;
+        [SerializeField] private KeyCode resetButton;
         
         [Header("Mouse input settings")]
         [Range(0f, 250f)]
@@ -24,6 +25,7 @@ namespace Configs
         public KeyCode ActionButton => actionButton;
         public KeyCode TimeStopButton => timeStopButton;
         public KeyCode MenuButton => menuButton;
+        public KeyCode ResetButton => resetButton;
 
         public float MouseSensitivityX => mouseSensitivityX;
         public float MouseSensitivityY => mouseSensitivityY;

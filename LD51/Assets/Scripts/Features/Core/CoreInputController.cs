@@ -61,6 +61,8 @@ namespace Features.Core.Mono
                 coreEvents.OnSlowdownTimePressed?.Invoke(!coreData.isSlowedDown);
             }
 
+            ResetTrigger();
+
         }
 
 
@@ -70,6 +72,12 @@ namespace Features.Core.Mono
             {
                 coreEvents.OnPauseButtonPressed?.Invoke(!coreData.isPaused);
             }
+        }
+
+        private void ResetTrigger() 
+        {
+            if (Input.GetKeyDown(inputConfig.ResetButton))
+                coreEvents.OnGameOver?.Invoke();
         }
 
         private void LockMouseLook(bool isPaused) 
