@@ -74,7 +74,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -144,7 +144,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: RightShutter
+    path: ShuttersView/RightShutter
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -206,7 +206,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -276,7 +276,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: RightShutter
+    path: ShuttersView/RightShutter
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -370,7 +370,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -434,7 +434,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -498,7 +498,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -562,7 +562,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -626,7 +626,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -690,7 +690,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -763,7 +763,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -836,7 +836,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -909,7 +909,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -982,7 +982,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1055,7 +1055,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1128,7 +1128,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -1139,7 +1139,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1149,7 +1149,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1159,7 +1159,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: RightShutter
+    path: ShuttersView/RightShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1169,7 +1169,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1179,7 +1179,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1189,7 +1189,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LeftShutter
+    path: ShuttersView/LeftShutter
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

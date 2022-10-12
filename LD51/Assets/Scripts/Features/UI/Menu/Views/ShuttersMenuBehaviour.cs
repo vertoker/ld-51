@@ -18,17 +18,30 @@ namespace Features.UI.Menu.Views
         [SerializeField] private Transform rightShutter;
         private SignalBus _signalBus;
 
+        private IDisposable _subscription;
+
         [Inject]
         public void Construct(SignalBus signalBus)
         {
             _signalBus = signalBus;
 
-            _signalBus.GetStream<MenuBehaviourSignals.ActionAdded>()
+            
+        }
+
+        private void OnEnable()
+        {
+           _subscription =
+                _signalBus.GetStream<MenuBehaviourSignals.ActionAdded>()
                 .Subscribe(signal =>
                 {
                     if (signal.Action == MenuAction.Info) DriveIn();
                     else if (signal.Action == MenuAction.MainMenu) DriveOut();
                 });
+        }
+
+        private void OnDisable()
+        {
+            _subscription.Dispose();
         }
 
         /*private void Update()

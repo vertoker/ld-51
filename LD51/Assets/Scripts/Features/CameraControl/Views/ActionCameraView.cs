@@ -15,7 +15,9 @@ namespace Features.CameraControl.Views
         [SerializeField] private Transform mainMenuPresenter;
         [SerializeField] private Transform infoMenuPresenter;
         [SerializeField] private Transform creditsMenuPresenter;
-        
+
+       
+
         private CameraBehaviourConfig _behaviourConfig;
         private SignalBus _signalBus;
         
@@ -24,6 +26,8 @@ namespace Features.CameraControl.Views
         private EntityViewOption _viewOption;
         private Vector3 _objectOffset;
         private Vector2 _lookRotation;
+
+         
         
         [Inject]
         public void Construct(CameraBehaviourConfig behaviourConfig,
@@ -34,13 +38,27 @@ namespace Features.CameraControl.Views
             
             _signalBus
                 .GetStream<CameraControlSignals.CameraToMenu>()
-                .Subscribe(button => CatchMenuTranslation(button.TranslateOption));
+                .Subscribe(button =>
+                {
+                    
+                   
+                    CatchMenuTranslation(button.TranslateOption);
+                   
+                });
             
             _signalBus
                 .GetStream<CameraControlSignals.CameraToObject>()
-                .Subscribe(target => CatchObjectTranslation(target.ViewOption, target.Transform, target.Offset, target.PresenterMode));
+                .Subscribe(target =>
+                {
+                   
+                   
+                    CatchObjectTranslation(target.ViewOption,
+                        target.Transform, target.Offset, target.PresenterMode);
+                    
+                });
         }
 
+        
         private  void CatchMenuTranslation(MenuAction translation)
         {
             _seekTarget = false;
@@ -52,6 +70,8 @@ namespace Features.CameraControl.Views
                 MenuAction.Credits => creditsMenuPresenter,
                 _ => transform
             };
+
+
             _cameraTarget = targetTranslation;
             StartCoroutine( TranslateToMenuOption(targetTranslation));
         }
@@ -66,6 +86,8 @@ namespace Features.CameraControl.Views
             if (presenterMode) 
                 StartCoroutine( TranslateToObject(target, 5.0f));
         }
+
+        
 
         //private async Task TranslateToObject(Transform objectTransform, float presentationTime)
         //{
@@ -91,7 +113,7 @@ namespace Features.CameraControl.Views
         private IEnumerator TranslateToObject
             (Transform objectTransform, float presentationTime)
         {
-            var estimatedTime = 0f;
+            float estimatedTime = 0f;
 
             while (transform.position != objectTransform.position - _objectOffset && objectTransform == _cameraTarget)
             {
@@ -108,11 +130,13 @@ namespace Features.CameraControl.Views
             }
 
             _seekTarget = true;
+
+            
         }
 
         private IEnumerator TranslateToMenuOption(Transform presenter)
         {
-            var accuracy = 0.999999f;
+            float accuracy = 0.999999f;
             while (transform && transform.position != presenter.position && 
                    Mathf.Abs(Quaternion.Dot(transform.rotation,presenter.rotation)) < accuracy &&
                    presenter == _cameraTarget && transform)
@@ -121,6 +145,8 @@ namespace Features.CameraControl.Views
                 transform.rotation = Quaternion.Lerp(transform.rotation, presenter.rotation, _behaviourConfig.CameraRotateSpeed * Time.deltaTime);
                 yield return null;
             }
+
+            
         }
 
         private void Update()

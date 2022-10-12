@@ -11,7 +11,9 @@ namespace Features.UI.Menu.Views
     {
         private const float SpeedMultiplier = 25f;
         
-        [SerializeField] private List<string> _displayLines;
+        [SerializeField]
+        [TextArea(1,5)]
+        private List<string> _displayLines;
         [SerializeField] private TMP_Text _currentLineDisplay;
         [SerializeField] private float _speed;
         

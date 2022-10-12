@@ -23,6 +23,7 @@ namespace Data
                 (PlayerPrefs.HasKey(GlobalConst.AudioVolumePref)) ?
                 PlayerPrefs.GetFloat(GlobalConst.AudioVolumePref) :
                 GlobalConst.StandardVolume;
+            
 
             Debug.Log("INIT COMPLETE");
 
